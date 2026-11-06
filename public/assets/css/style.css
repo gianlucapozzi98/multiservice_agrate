@@ -467,7 +467,7 @@ strong { font-weight: 650; }
 }
 .marquee__item::after { content: ""; width: 8px; height: 8px; background: rgba(255,255,255,.7); transform: rotate(45deg); }
 @keyframes marquee { to { transform: translateX(-50%); } }
-@media (hover: hover) and (pointer: fine) { .marquee:hover .marquee__track { animation-play-state: paused; } }
+/* Nessuna pausa al passaggio del mouse: il nastro scorre sempre, uguale su desktop e mobile. */
 
 /* ---------- Intro / chi siamo (home) ---------- */
 .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 110px); align-items: center; }
@@ -1092,7 +1092,15 @@ strong { font-weight: 650; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .js [data-reveal], .js .hero [data-hero], .js .hero__media img { opacity: 1 !important; transform: none !important; }
   .js .img-reveal::after { display: none; }
-  .marquee__track { animation: none; }
+  /* "Riduci movimento" attivo: il nastro non scorre e mostra l'elenco completo, non una riga tagliata */
+  .marquee__track { animation: none; display: block; width: auto; }
+  .marquee__group { flex-wrap: wrap; justify-content: center; gap: 6px; padding-inline: 16px; max-width: 1100px; margin-inline: auto; }
+  .marquee__group + .marquee__group { display: none; }
+  .marquee__item {
+    padding: 4px 12px; border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+    font-size: .82rem; font-stretch: 100%; line-height: 1.4; white-space: normal;
+  }
+  .marquee__item::after { display: none; }
 }
 
 /* ---------- Stampa ---------- */
