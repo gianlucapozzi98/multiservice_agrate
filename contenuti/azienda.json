@@ -1,0 +1,93 @@
+{
+  "_nota": "Dati dell'azienda usati in tutto il sito (header, footer, contatti, privacy, dati strutturati per Google). Dopo ogni modifica: python3 build.py",
+
+  "nome": "Multiservice",
+  "ragione_sociale": "Multiservice S.r.l.",
+  "descrizione_breve": "Impresa edile ad Agrate Brianza: ristrutturazioni chiavi in mano, impianti, serramenti, finiture, tetti e facciate in Brianza e a Milano.",
+  "anno_fondazione": 2020,
+  "dominio": "https://www.multiservice-srls.it",
+
+  "telefono": "039 598 77 48",
+  "telefono_href": "+390395987748",
+  "cellulare": "333 894 9435",
+  "cellulare_href": "+393338949435",
+  "whatsapp": "393338949435",
+  "whatsapp_messaggio": "Buongiorno, vorrei informazioni per un intervento.",
+  "email": "multi-servicesrls@hotmail.com",
+  "pec": "",
+
+  "sede_operativa": {
+    "via": "Via Cesare Battisti 8/10",
+    "cap": "20864",
+    "citta": "Agrate Brianza",
+    "provincia": "MB"
+  },
+  "sede_legale": {
+    "via": "Via Beatrice Tenda 5",
+    "cap": "20082",
+    "citta": "Binasco",
+    "provincia": "MI"
+  },
+  "partita_iva": "11173380962",
+  "rea": "",
+  "capitale_sociale": "",
+
+  "orari": [
+    { "giorni": "Lunedì – Venerdì", "ore": "8:30 – 12:30 · 15:00 – 19:00" },
+    { "giorni": "Sabato e domenica", "ore": "Chiuso" }
+  ],
+  "orari_schema": [
+    { "giorni": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "apre": "08:30", "chiude": "12:30" },
+    { "giorni": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "apre": "15:00", "chiude": "19:00" }
+  ],
+
+  "facebook": "https://www.facebook.com/multiservicesrlsristrutturazioni/",
+  "google_maps": "https://www.google.com/maps?cid=3126245096346193969",
+  "google_recensioni": "https://www.google.com/maps?cid=3126245096346193969",
+  "mappa_embed": "https://www.google.com/maps?q=Via+Cesare+Battisti+8,+20864+Agrate+Brianza+MB&output=embed",
+
+  "zone": [
+    "Agrate Brianza", "Monza", "Milano", "Vimercate", "Concorezzo", "Burago di Molgora",
+    "Caponago", "Carugate", "Brugherio", "Arcore", "Merate", "Lissone"
+  ],
+
+  "recensioni": [
+    {
+      "autore": "Massimo M.",
+      "voto": 5,
+      "testo": "Ho comprato casa e volevo ristrutturarla, ne ho parlato con loro, mi sono sentito a mio agio, pensavo mi costasse tanto e invece ho visto un buon preventivo e sicuramente la ristrutturo con loro.",
+      "fonte": "Google"
+    },
+    {
+      "autore": "E. B.",
+      "voto": 5,
+      "testo": "Ho avuto il piacere di conoscere Multiservice Impresa Edile di Agrate B.za e sono rimasta molto soddisfatta.",
+      "fonte": "Google"
+    }
+  ],
+
+  "certificazioni": [
+    {
+      "id": "iso-9001",
+      "titolo": "ISO 9001:2015",
+      "sottotitolo": "Sistema di gestione per la qualità",
+      "ente": "TNV Europe",
+      "numero": "250718-00093-078",
+      "campo": "Ristrutturazioni interne ed esterne di edifici",
+      "emissione": "18/07/2025",
+      "scadenza": "17/07/2028",
+      "immagine": "certificazioni/iso-9001-2015.jpg"
+    },
+    {
+      "id": "f-gas",
+      "titolo": "Certificazione F-Gas",
+      "sottotitolo": "Regolamento (UE) 2015/2067",
+      "ente": "Certifica.srl",
+      "numero": "CI00439",
+      "campo": "Installazione, manutenzione e riparazione di impianti di refrigerazione, condizionamento d'aria e pompe di calore contenenti gas fluorurati a effetto serra",
+      "emissione": "02/02/2024",
+      "scadenza": "01/02/2029",
+      "immagine": "certificazioni/f-gas.jpg"
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "_nota": "Ogni servizio genera una pagina all'indirizzo /<slug>/. Le foto si riferiscono alla cartella foto/. 'categoria_lavori' collega il servizio ai cantieri di contenuti/lavori.json.",
+  "servizi": [
+    {
+      "slug": "ristrutturazioni",
+      "nome": "Ristrutturazioni",
+      "nome_esteso": "Ristrutturazioni chiavi in mano",
+      "icona": "i-casa",
+      "h1": "Ristrutturazioni edili <em>chiavi in mano</em> ad Agrate Brianza",
+      "titolo_seo": "Ristrutturazioni chiavi in mano ad Agrate Brianza e Monza",
+      "descrizione_seo": "Ristrutturazioni totali o parziali di appartamenti e ville ad Agrate Brianza, Monza e Milano: progettazione, opere murarie, impianti, finiture. Preventivo senza impegno.",
+      "sommario": "Ristrutturazioni totali o parziali di appartamenti, ville e uffici, dalla progettazione alla consegna.",
+      "lead": "Dalla progettazione alla posa dei materiali, fino ai collaudi: Multiservice segue ogni aspetto dei lavori e ti consegna l'immobile completo nei tempi stabiliti.",
+      "testo": [
+        "Multiservice propone ristrutturazioni edili con formula chiavi in mano. L'impresa segue con precisione le tue indicazioni e coordina tutte le lavorazioni necessarie, senza che tu debba cercare e mettere d'accordo ditte diverse.",
+        "Muratori, elettricisti, idraulici, imbianchini, geometri e tecnici lavorano in sinergia sullo stesso cantiere. Ogni intervento viene pianificato con cura, con consulenza su impianti, pavimentazioni e materiali, e con il supporto per le domande di accesso ai bonus fiscali."
+      ],
+      "punti": [
+        "Ristrutturazioni totali o parziali di appartamenti e ville",
+        "Demolizioni, nuove aperture e modifiche della distribuzione interna",
+        "Rifacimento completo di bagni e cucine",
+        "Impianti elettrici, idraulici e di climatizzazione",
+        "Massetti, pavimenti, rivestimenti e opere da imbianchino",
+        "Fornitura e posa di serramenti, porte, sanitari e rubinetteria",
+        "Sgombero e smaltimento dei materiali di risulta",
+        "Supporto per pratiche e documentazione dei bonus fiscali"
+      ],
+      "copertina": { "src": "servizi/rivestimenti/01.jpg", "alt": "Bagno ristrutturato con rivestimento effetto marmo e pavimento effetto legno" },
+      "galleria_titolo": "Dai nostri cantieri di ristrutturazione",
+      "galleria": [
+        { "src": "servizi/rivestimenti/01.jpg", "alt": "Bagno ristrutturato con rivestimento effetto marmo" },
+        { "src": "lavori/merate/02-parquet.jpg", "alt": "Camera con nuovo parquet a spina di pesce a Merate" },
+        { "src": "lavori/burago-di-molgora/01-nuova-apertura.jpg", "alt": "Nuova apertura verso il giardino durante la ristrutturazione di una villa" },
+        { "src": "lavori/monza-corso-milano/01.jpg", "alt": "Rivestimento decorativo in posa in un appartamento a Monza" },
+        { "src": "lavori/merate/03-camera.jpg", "alt": "Stanza con pareti rasate e nuovo serramento" },
+        { "src": "lavori/burago-di-molgora/03-modifica-scala.jpg", "alt": "Modifica della scala interna in una villa a Burago di Molgora" },
+        { "src": "servizi/rivestimenti/07.jpg", "alt": "Bagno con pavimento effetto legno e mobile lavabo" },
+        { "src": "lavori/milano/01.jpg", "alt": "Lavori interni in un appartamento a Milano" },
+        { "src": "servizi/rivestimenti/03.jpg", "alt": "Soggiorno con pavimento effetto legno appena posato" }
+      ],
+      "categoria_lavori": ["ristrutturazioni"],
+      "faq": [
+        { "d": "Quanto tempo serve per ristrutturare un appartamento?", "r": "Dipende dalla metratura e dagli interventi richiesti. Dopo il sopralluogo ricevi un preventivo dettagliato con le lavorazioni e i tempi previsti, così sai fin dall'inizio come si svolgerà il cantiere." },
+        { "d": "Vi occupate anche della scelta dei materiali?", "r": "Sì. Ti consigliamo su pavimenti, rivestimenti, sanitari, rubinetteria e serramenti, con soluzioni adatte al tuo budget e materiali di qualità selezionati dalle migliori marche." },
+        { "d": "Mi aiutate con i bonus fiscali?", "r": "Sì, ti affianchiamo nella preparazione della documentazione necessaria per accedere alle detrazioni fiscali previste per il tuo intervento." }
+      ]
+    },
+    {
+      "slug": "facciate-e-cappotto-termico",
+      "nome": "Facciate e cappotto",
+      "nome_esteso": "Facciate e cappotto termico",
+      "icona": "i-facciata",
+      "h1": "Rifacimento facciate e <em>cappotto termico</em> in Brianza",
+      "titolo_seo": "Rifacimento facciate e cappotto termico a Monza e Brianza",
+      "descrizione_seo": "Riqualificazione di facciate di condomini e abitazioni con isolamento a cappotto termico, rasature e finiture esterne. Cantieri a Monza, Agrate Brianza e dintorni.",
+      "sommario": "Riqualificazione di facciate di condomini e abitazioni, con isolamento a cappotto e nuove finiture.",
+      "lead": "Una facciata nuova cambia il volto dell'edificio. Con il cappotto termico migliorano anche comfort ed efficienza energetica, inverno ed estate.",
+      "testo": [
+        "Multiservice riqualifica le facciate di condomini e abitazioni private: dal montaggio dei ponteggi alla preparazione dei supporti, dalla posa dei pannelli isolanti alle rasature, fino alle finiture e ai decori.",
+        "L'isolamento a cappotto riduce le dispersioni di calore attraverso le pareti esterne: è una delle soluzioni più efficaci per abbassare i consumi e aumentare il comfort abitativo, con un risultato estetico completamente rinnovato."
+      ],
+      "punti": [
+        "Ponteggi e organizzazione del cantiere in sicurezza",
+        "Ripristino e preparazione delle superfici esterne",
+        "Isolamento termico a cappotto",
+        "Rasature armate e intonaci di finitura",
+        "Tinteggiature esterne e decori a rilievo",
+        "Interventi su condomini e case private"
+      ],
+      "copertina": { "src": "lavori/monza-via-viotti/dopo-02.jpg", "alt": "Facciata cieca rinnovata con decoro geometrico a Monza" },
+      "galleria_titolo": "Facciate realizzate",
+      "galleria": [
+        { "src": "lavori/monza-via-viotti/dopo-01.jpg", "alt": "Condominio con facciate rinnovate in via Viotti a Monza" },
+        { "src": "lavori/monza-via-viotti/durante-01.jpg", "alt": "Posa dei pannelli isolanti del cappotto termico" },
+        { "src": "lavori/monza-via-viotti/dopo-03.jpg", "alt": "Fronte cieco con cornice decorativa dopo il rifacimento" },
+        { "src": "lavori/agrate-brianza-via-matteotti/cantiere-02.jpg", "alt": "Ponteggio e pannelli isolanti su un edificio ad Agrate Brianza" },
+        { "src": "lavori/monza-via-viotti/dopo-04.jpg", "alt": "Facciata bicolore con balconi rinnovati" },
+        { "src": "lavori/agrate-brianza-via-matteotti/cantiere-01.jpg", "alt": "Cantiere di riqualificazione della facciata in via Matteotti" }
+      ],
+      "categoria_lavori": ["facciate"],
+      "faq": [
+        { "d": "Lavorate anche per i condomini?", "r": "Sì. Gestiamo cantieri su edifici condominiali, organizzando ponteggi, accessi e lavorazioni per ridurre al minimo i disagi per chi ci abita." },
+        { "d": "Il cappotto termico rientra nei bonus fiscali?", "r": "Gli interventi di isolamento possono rientrare tra le detrazioni previste dalla normativa in vigore. In fase di preventivo verifichiamo con te i requisiti e ti supportiamo con la documentazione." }
+      ]
+    },
+    {
+      "slug": "impianti-elettrici-ed-idraulici",
+      "nome": "Impianti",
+      "nome_esteso": "Impianti elettrici e idraulici",
+      "icona": "i-impianti",
+      "h1": "Impianti elettrici e idraulici <em>sicuri e a norma</em>",
+      "titolo_seo": "Impianti elettrici e idraulici ad Agrate Brianza",
+      "descrizione_seo": "Rifacimento e manutenzione di impianti elettrici, idraulici, di riscaldamento e climatizzazione ad Agrate Brianza e in Brianza. Impresa certificata F-Gas.",
+      "sommario": "Rifacimento e manutenzione di impianti elettrici, idraulici, di riscaldamento e climatizzazione.",
+      "lead": "Impianti funzionali, sicuri e adatti alle caratteristiche di ogni edificio, sempre nel rispetto della normativa vigente.",
+      "testo": [
+        "Multiservice dispone di un organico di specialisti in impianti elettrici, idraulici e termici, costantemente aggiornati sulle novità del settore. Ci occupiamo soprattutto del rinnovo di impianti vecchi, obsoleti o danneggiati, che rappresentano un rischio per chi vive l'edificio.",
+        "Con un semplice sopralluogo i tecnici individuano le criticità e le possibili soluzioni, presentate con chiarezza insieme ai costi e ai tempi dell'intervento. Per riscaldamento e raffrescamento proponiamo impianti termoidraulici a consumi contenuti, anche abbinabili al fotovoltaico, e climatizzatori installati da impresa certificata F-Gas."
+      ],
+      "punti": [
+        "Rifacimento e adeguamento di impianti elettrici",
+        "Nuove linee, punti luce, prese e quadri elettrici",
+        "Impianti idraulici per bagni e cucine",
+        "Impianti di riscaldamento e raffrescamento",
+        "Climatizzatori e pompe di calore (certificazione F-Gas)",
+        "Soluzioni a basso consumo, anche abbinate al fotovoltaico"
+      ],
+      "copertina": { "src": "lavori/merate/05-tracce-impianti.jpg", "alt": "Tracce per i nuovi impianti durante una ristrutturazione" },
+      "galleria_titolo": "Impianti nei nostri cantieri",
+      "galleria": [
+        { "src": "lavori/merate/05-tracce-impianti.jpg", "alt": "Tracce a muro per nuovi impianti elettrici e idraulici" },
+        { "src": "lavori/burago-di-molgora/04-tracce.jpg", "alt": "Predisposizione degli impianti in un bagno" },
+        { "src": "lavori/burago-di-molgora/05-tracce-bagno.jpg", "alt": "Nuovi scarichi e alimentazioni idrauliche per il bagno" },
+        { "src": "servizi/imbiancature/09.jpg", "alt": "Climatizzatore installato su parete con finitura decorativa" },
+        { "src": "lavori/milano/04.jpg", "alt": "Predisposizioni impiantistiche in un appartamento a Milano" },
+        { "src": "lavori/merate/04-bagno-demolizione.jpg", "alt": "Bagno pronto per il rifacimento degli impianti" }
+      ],
+      "categoria_lavori": ["ristrutturazioni"],
+      "faq": [
+        { "d": "Installate climatizzatori e pompe di calore?", "r": "Sì. Multiservice è certificata F-Gas (certificato CI00439, Regolamento UE 2015/2067) per installazione, manutenzione e riparazione di condizionatori e pompe di calore." },
+        { "d": "Fate anche solo il rifacimento dell'impianto elettrico?", "r": "Sì, interveniamo anche su singoli impianti: dopo il sopralluogo ti proponiamo la soluzione più adatta, con costi e tempi chiari." }
+      ]
+    },
+    {
+      "slug": "imbiancature",
+      "nome": "Imbiancature",
+      "nome_esteso": "Imbiancature e finiture decorative",
+      "icona": "i-rullo",
+      "h1": "Imbiancature e <em>finiture decorative</em>",
+      "titolo_seo": "Imbiancature e pitture decorative ad Agrate Brianza",
+      "descrizione_seo": "Tinteggiature, rasature, stucchi e finiture decorative ad Agrate Brianza, Monza e Milano. Artigiani qualificati e consulenza su colori e materiali.",
+      "sommario": "Tinteggiature, rasature, stucchi e finiture decorative, con consulenza su colori e materiali.",
+      "lead": "I nostri artigiani qualificati danno il tocco finale a ogni ambiente, con finiture di alta qualità e grande precisione.",
+      "testo": [
+        "Da anni nel settore, i pittori di Multiservice ti consigliano su colori, tipo di finitura e materiali più adatti a ogni stanza, e realizzano ogni lavoro con cura, proteggendo pavimenti e arredi.",
+        "Dalla tinteggiatura tradizionale alle finiture decorative effetto marmo, velature e stucchi, fino alla verniciatura di travi e soffitti in legno."
+      ],
+      "punti": [
+        "Tinteggiatura di interni ed esterni",
+        "Rasature e preparazione delle superfici",
+        "Finiture decorative, velature ed effetti materici",
+        "Stucchi, cornici e decori a soffitto",
+        "Verniciatura di travi e soffitti in legno",
+        "Protezione di pavimenti e arredi durante i lavori"
+      ],
+      "copertina": { "src": "servizi/imbiancature/09.jpg", "alt": "Parete con finitura decorativa effetto marmo" },
+      "galleria_titolo": "Finiture realizzate",
+      "galleria": [
+        { "src": "servizi/imbiancature/09.jpg", "alt": "Parete con finitura decorativa effetto marmo" },
+        { "src": "servizi/imbiancature/12.jpg", "alt": "Parete con finitura decorativa verde" },
+        { "src": "servizi/imbiancature/14.jpg", "alt": "Soffitto con cornici e stucchi decorativi" },
+        { "src": "servizi/imbiancature/02.jpg", "alt": "Soffitto in legno a travi verniciato di bianco" },
+        { "src": "servizi/imbiancature/13.jpg", "alt": "Cameretta con finitura decorativa verde e mensole" },
+        { "src": "servizi/imbiancature/06.jpg", "alt": "Parete con finitura decorativa color sabbia" },
+        { "src": "servizi/imbiancature/05.jpg", "alt": "Soffitto in legno a vista con pilastro bianco" },
+        { "src": "servizi/imbiancature/03.jpg", "alt": "Parete con finitura azzurra e zoccolatura" },
+        { "src": "servizi/imbiancature/07.jpg", "alt": "Nicchie e mensole in muratura rifinite in grigio perla" },
+        { "src": "servizi/imbiancature/15.jpg", "alt": "Parete decorata a righe verticali azzurre e grigie" },
+        { "src": "servizi/imbiancature/10.jpg", "alt": "Colonna con finitura decorativa argento" },
+        { "src": "servizi/imbiancature/08.jpg", "alt": "Vano scala con pareti in finitura beige" },
+        { "src": "servizi/imbiancature/17.jpg", "alt": "Soffitto con decoro geometrico multicolore" },
+        { "src": "servizi/imbiancature/01.jpg", "alt": "Corridoio con parete a finitura lucida" },
+        { "src": "servizi/imbiancature/16.jpg", "alt": "Mansarda con libreria in muratura in finitura grigia" },
+        { "src": "servizi/imbiancature/04.jpg", "alt": "Ambiente open space tinteggiato di bianco" },
+        { "src": "servizi/imbiancature/11.jpg", "alt": "Stanza tinteggiata di bianco pronta per l'arredo" }
+      ],
+      "categoria_lavori": [],
+      "faq": [
+        { "d": "Mi aiutate a scegliere colori e finiture?", "r": "Sì, ti consigliamo colori, effetti e materiali in base allo stile della casa, alla luce degli ambienti e al tuo budget." },
+        { "d": "Tinteggiate anche gli esterni?", "r": "Sì, realizziamo tinteggiature e finiture esterne, anche all'interno di interventi di rifacimento delle facciate." }
+      ]
+    },
+    {
+      "slug": "rivestimenti",
+      "nome": "Pavimenti e rivestimenti",
+      "nome_esteso": "Pavimenti e rivestimenti",
+      "icona": "i-piastrelle",
+      "h1": "Posa di <em>pavimenti e rivestimenti</em>",
+      "titolo_seo": "Posa pavimenti e rivestimenti ad Agrate Brianza",
+      "descrizione_seo": "Fornitura e posa di pavimenti, piastrelle, grandi formati e rivestimenti per bagni e cucine ad Agrate Brianza e Monza. Bagni completi di sanitari e rubinetteria.",
+      "sommario": "Fornitura e posa di pavimenti, piastrelle e rivestimenti, con bagni completi di sanitari e rubinetteria.",
+      "lead": "Un'ampia scelta di piastrelle e pavimenti di qualità, con una posa curata che dura nel tempo, anche nelle soluzioni più economiche.",
+      "testo": [
+        "Multiservice propone una vasta gamma di piastrelle, pavimenti e rivestimenti di qualità e ne cura la posa con sistemi di livellamento, per superfici perfettamente planari anche con le lastre di grande formato.",
+        "Puoi affidarti ai nostri tecnici per la progettazione degli interni e rinnovare completamente il tuo bagno con sanitari, piatti doccia e rubinetteria di pregio, selezionati tra le migliori marche."
+      ],
+      "punti": [
+        "Pavimenti in gres, effetto legno e grandi formati",
+        "Parquet e pavimenti in legno",
+        "Rivestimenti per bagni e cucine",
+        "Massetti e preparazione dei fondi",
+        "Rifacimento completo del bagno",
+        "Fornitura di sanitari, piatti doccia e rubinetteria"
+      ],
+      "copertina": { "src": "servizi/rivestimenti/14.jpg", "alt": "Soggiorno con pavimento effetto legno e pannello decorativo a parete" },
+      "galleria_titolo": "Pavimenti e bagni realizzati",
+      "galleria": [
+        { "src": "servizi/rivestimenti/01.jpg", "alt": "Bagno con rivestimento effetto marmo e pavimento effetto legno" },
+        { "src": "servizi/rivestimenti/02.jpg", "alt": "Doccia con rivestimento effetto legno scuro" },
+        { "src": "servizi/rivestimenti/14.jpg", "alt": "Pavimento effetto legno e pannello decorativo a parete" },
+        { "src": "servizi/rivestimenti/08.jpg", "alt": "Posa del pavimento con sistema di livellamento" },
+        { "src": "servizi/rivestimenti/07.jpg", "alt": "Bagno con pavimento effetto legno e mobile lavabo" },
+        { "src": "servizi/rivestimenti/04.jpg", "alt": "Corridoio con pavimento lucido appena posato" },
+        { "src": "servizi/rivestimenti/09.jpg", "alt": "Posa di pavimento in listoni effetto legno" },
+        { "src": "servizi/rivestimenti/06.jpg", "alt": "Rivestimento effetto marmo in bagno" },
+        { "src": "servizi/rivestimenti/15.jpg", "alt": "Pavimento in grandi lastre effetto pietra" },
+        { "src": "servizi/rivestimenti/05.jpg", "alt": "Corridoio con porte bianche e pavimento chiaro" },
+        { "src": "servizi/rivestimenti/13.jpg", "alt": "Livellatori durante la posa delle lastre" },
+        { "src": "servizi/rivestimenti/03.jpg", "alt": "Soggiorno con pavimento appena posato" },
+        { "src": "servizi/rivestimenti/11.jpg", "alt": "Posa di grandi lastre con distanziatori" },
+        { "src": "servizi/rivestimenti/12.jpg", "alt": "Corridoio con pavimento posato e pareti rasate" },
+        { "src": "servizi/rivestimenti/16.jpg", "alt": "Pavimento in grande formato appena posato" },
+        { "src": "servizi/rivestimenti/17.jpg", "alt": "Rivestimento bagno effetto marmo" },
+        { "src": "servizi/rivestimenti/10.jpg", "alt": "Stanza preparata per la posa del pavimento" },
+        { "src": "lavori/burago-di-molgora/07-posa-pavimento.jpg", "alt": "Posa di un pavimento a grandi lastre in una villa" }
+      ],
+      "categoria_lavori": [],
+      "faq": [
+        { "d": "Fornite anche i materiali?", "r": "Sì, forniamo piastrelle, pavimenti, sanitari, piatti doccia e rubinetteria, oppure posiamo materiali scelti da te." },
+        { "d": "Posate anche lastre di grande formato?", "r": "Sì, con sistemi di livellamento che garantiscono superfici planari e fughe regolari." }
+      ]
+    },
+    {
+      "slug": "serramenti",
+      "nome": "Serramenti",
+      "nome_esteso": "Serramenti, porte e tende",
+      "icona": "i-finestra",
+      "h1": "Serramenti, porte e <em>tende da sole</em>",
+      "titolo_seo": "Serramenti in PVC e alluminio ad Agrate Brianza",
+      "descrizione_seo": "Fornitura e posa di serramenti in PVC e alluminio, porte, portoni, persiane, cancelli e ringhiere in ferro battuto, tende da sole e da interno ad Agrate Brianza.",
+      "sommario": "Finestre in PVC e alluminio, porte, portoni, persiane, cancelli e tende da sole, con fornitura e posa.",
+      "lead": "Serramenti di qualità, realizzati da produttori leader del settore, per lavori resistenti nel tempo e ottime prestazioni in ogni stagione.",
+      "testo": [
+        "Multiservice propone una vasta gamma di serramenti in PVC e alluminio, portoni e porte di ogni genere, dal design moderno e ricercato a quello più classico, adatto a tutte le preferenze.",
+        "Su richiesta l'impresa fornisce anche cancelli e ringhiere in ferro battuto e si occupa della vendita e installazione di tende da sole e da interno."
+      ],
+      "punti": [
+        "Finestre e portefinestre in PVC e alluminio",
+        "Porte interne, blindate e portoni",
+        "Persiane, scuri e tapparelle",
+        "Cancelli, inferriate e ringhiere in ferro battuto",
+        "Tende da sole e da interno",
+        "Rimozione dei vecchi serramenti e posa in opera"
+      ],
+      "copertina": { "src": "servizi/serramenti/17.jpg", "alt": "Portafinestra scorrevole con telaio in legno" },
+      "galleria_titolo": "Alcune soluzioni a catalogo",
+      "galleria": [
+        { "src": "servizi/serramenti/17.jpg", "alt": "Portafinestra scorrevole con telaio in legno" },
+        { "src": "servizi/serramenti/20.jpg", "alt": "Finestra a due ante in PVC bianco" },
+        { "src": "servizi/serramenti/16.jpg", "alt": "Persiana bianca a lamelle" },
+        { "src": "servizi/serramenti/01.jpg", "alt": "Finestre in PVC bianco a due ante" },
+        { "src": "servizi/serramenti/10.jpg", "alt": "Scala con ringhiera in ferro battuto" },
+        { "src": "servizi/serramenti/04.jpg", "alt": "Finestra con inferriata decorativa" }
+      ],
+      "categoria_lavori": [],
+      "faq": [
+        { "d": "Cambiare i serramenti migliora l'isolamento?", "r": "Sì: serramenti con buone prestazioni termiche e acustiche riducono le dispersioni e i rumori dall'esterno. Ti aiutiamo a scegliere materiali e vetri più adatti." },
+        { "d": "Vi occupate anche della rimozione dei vecchi infissi?", "r": "Sì, rimuoviamo i vecchi serramenti e ci occupiamo della posa e delle finiture." }
+      ]
+    },
+    {
+      "slug": "rifacimento-tetti",
+      "nome": "Tetti",
+      "nome_esteso": "Rifacimento tetti",
+      "icona": "i-tetto",
+      "h1": "Rifacimento e <em>manutenzione tetti</em>",
+      "titolo_seo": "Rifacimento tetti ad Agrate Brianza e in Brianza",
+      "descrizione_seo": "Rifacimento, impermeabilizzazione e manutenzione di tetti e coperture per case, condomini, edifici commerciali e industriali ad Agrate Brianza e in Brianza.",
+      "sommario": "Manutenzione, impermeabilizzazione e rifacimento di coperture per case, condomini e capannoni.",
+      "lead": "Un tetto in buone condizioni protegge tutto l'edificio. Gestiamo interventi di ogni dimensione, dalla riparazione al rifacimento completo.",
+      "testo": [
+        "La manutenzione e la ristrutturazione del tetto sono decisive per la durata e la sicurezza di un'abitazione o di un edificio. Multiservice interviene su coperture di ogni tipo: case private, condomini, edifici commerciali e industriali.",
+        "Collaboriamo solo con fornitori affidabili e utilizziamo materiali durevoli e resistenti alle intemperie, perché il tetto resti in condizioni ottimali per molti anni."
+      ],
+      "punti": [
+        "Rifacimento completo della copertura",
+        "Sostituzione di tegole e coppi",
+        "Impermeabilizzazioni con guaine",
+        "Coperture in lamiera per capannoni",
+        "Colmi, lattonerie e canali di gronda",
+        "Ponteggi e cantiere in sicurezza"
+      ],
+      "copertina": { "src": "servizi/tetti/08.jpg", "alt": "Rifacimento di un tetto in coppi con ponteggio" },
+      "galleria_titolo": "Coperture realizzate",
+      "galleria": [
+        { "src": "servizi/tetti/08.jpg", "alt": "Rifacimento di un tetto in coppi con ponteggio" },
+        { "src": "servizi/tetti/02.jpg", "alt": "Coppi e colmo appena posati" },
+        { "src": "servizi/tetti/03.jpg", "alt": "Impermeabilizzazione sotto il manto di copertura" },
+        { "src": "servizi/tetti/04.jpg", "alt": "Manto di copertura in coppi" },
+        { "src": "servizi/tetti/05.jpg", "alt": "Impermeabilizzazione di una copertura piana" },
+        { "src": "servizi/tetti/01.jpg", "alt": "Copertura in lamiera di un capannone" },
+        { "src": "servizi/tetti/06.jpg", "alt": "Copertura in lamiera con lucernari" },
+        { "src": "servizi/tetti/09.jpg", "alt": "Sollevatore telescopico in un cantiere di rifacimento tetto" }
+      ],
+      "categoria_lavori": [],
+      "faq": [
+        { "d": "Intervenite anche su capannoni e edifici industriali?", "r": "Sì, realizziamo coperture e impermeabilizzazioni per edifici commerciali e industriali, oltre che per case e condomini." },
+        { "d": "Fate anche piccole riparazioni?", "r": "Sì, dalla sostituzione di poche tegole alla riparazione di infiltrazioni, fino al rifacimento completo." }
+      ]
+    }
+  ]
+}

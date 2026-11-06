@@ -1,0 +1,830 @@
+{
+ "azienda/furgone.webp": {
+  "h": 1024,
+  "hash": "84eaa944e82a",
+  "w": 742,
+  "widths": [
+   480,
+   742
+  ]
+ },
+ "certificazioni/f-gas.jpg": {
+  "h": 1685,
+  "hash": "99832049aed4",
+  "w": 1190,
+  "widths": [
+   480,
+   960,
+   1190
+  ]
+ },
+ "certificazioni/iso-9001-2015.jpg": {
+  "h": 1497,
+  "hash": "93edf96dbae8",
+  "w": 1058,
+  "widths": [
+   480,
+   960,
+   1058
+  ]
+ },
+ "lavori/agrate-brianza-via-matteotti/cantiere-01.jpg": {
+  "h": 1920,
+  "hash": "65e3720a96cf",
+  "w": 2560,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/agrate-brianza-via-matteotti/cantiere-02.jpg": {
+  "h": 1920,
+  "hash": "75f2c39620fb",
+  "w": 2560,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/agrate-brianza-via-matteotti/cantiere-03.jpg": {
+  "h": 1920,
+  "hash": "66476dbf15c0",
+  "w": 2560,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/agrate-brianza-via-matteotti/cantiere-04.jpg": {
+  "h": 1920,
+  "hash": "321af159ea29",
+  "w": 2560,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/agrate-brianza-via-matteotti/cantiere-05.jpg": {
+  "h": 1920,
+  "hash": "da7be6441a27",
+  "w": 2560,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/burago-di-molgora/01-nuova-apertura.jpg": {
+  "h": 481,
+  "hash": "0dadab3247ba",
+  "w": 640,
+  "widths": [
+   480,
+   640
+  ]
+ },
+ "lavori/burago-di-molgora/02-demolizione.jpg": {
+  "h": 640,
+  "hash": "c2fc349a669f",
+  "w": 481,
+  "widths": [
+   480,
+   481
+  ]
+ },
+ "lavori/burago-di-molgora/03-modifica-scala.jpg": {
+  "h": 640,
+  "hash": "eb269dc287cd",
+  "w": 481,
+  "widths": [
+   480,
+   481
+  ]
+ },
+ "lavori/burago-di-molgora/04-tracce.jpg": {
+  "h": 640,
+  "hash": "4ed1ad834df0",
+  "w": 481,
+  "widths": [
+   480,
+   481
+  ]
+ },
+ "lavori/burago-di-molgora/05-tracce-bagno.jpg": {
+  "h": 640,
+  "hash": "edbf579b42a6",
+  "w": 481,
+  "widths": [
+   480,
+   481
+  ]
+ },
+ "lavori/burago-di-molgora/06-bagno.jpg": {
+  "h": 640,
+  "hash": "91daf492aa84",
+  "w": 481,
+  "widths": [
+   480,
+   481
+  ]
+ },
+ "lavori/burago-di-molgora/07-posa-pavimento.jpg": {
+  "h": 1062,
+  "hash": "b3ad258df743",
+  "w": 1416,
+  "widths": [
+   480,
+   960,
+   1416
+  ]
+ },
+ "lavori/merate/01-edificio.jpg": {
+  "h": 480,
+  "hash": "59e86c2f42ee",
+  "w": 640,
+  "widths": [
+   480,
+   640
+  ]
+ },
+ "lavori/merate/02-parquet.jpg": {
+  "h": 640,
+  "hash": "73d4eda60c64",
+  "w": 480,
+  "widths": [
+   480
+  ]
+ },
+ "lavori/merate/03-camera.jpg": {
+  "h": 640,
+  "hash": "b90dea7659ce",
+  "w": 481,
+  "widths": [
+   480,
+   481
+  ]
+ },
+ "lavori/merate/04-bagno-demolizione.jpg": {
+  "h": 640,
+  "hash": "da710e217c25",
+  "w": 475,
+  "widths": [
+   475
+  ]
+ },
+ "lavori/merate/05-tracce-impianti.jpg": {
+  "h": 640,
+  "hash": "edbf579b42a6",
+  "w": 481,
+  "widths": [
+   480,
+   481
+  ]
+ },
+ "lavori/merate/06-sgombero.jpg": {
+  "h": 640,
+  "hash": "da2d241b57bd",
+  "w": 500,
+  "widths": [
+   480,
+   500
+  ]
+ },
+ "lavori/milano/01.jpg": {
+  "h": 1599,
+  "hash": "1f83f6dc73a3",
+  "w": 899,
+  "widths": [
+   480,
+   899
+  ]
+ },
+ "lavori/milano/02.jpg": {
+  "h": 1599,
+  "hash": "8f9ea17195ca",
+  "w": 899,
+  "widths": [
+   480,
+   899
+  ]
+ },
+ "lavori/milano/03.jpg": {
+  "h": 1599,
+  "hash": "7637f6743094",
+  "w": 899,
+  "widths": [
+   480,
+   899
+  ]
+ },
+ "lavori/milano/04.jpg": {
+  "h": 1599,
+  "hash": "9c3955e9ef8b",
+  "w": 899,
+  "widths": [
+   480,
+   899
+  ]
+ },
+ "lavori/milano/05.jpg": {
+  "h": 1599,
+  "hash": "87fdae78d24f",
+  "w": 899,
+  "widths": [
+   480,
+   899
+  ]
+ },
+ "lavori/milano/06.jpg": {
+  "h": 1599,
+  "hash": "3808adac4319",
+  "w": 899,
+  "widths": [
+   480,
+   899
+  ]
+ },
+ "lavori/milano/07.jpg": {
+  "h": 1599,
+  "hash": "ff53b14ac895",
+  "w": 899,
+  "widths": [
+   480,
+   899
+  ]
+ },
+ "lavori/monza-corso-milano/01.jpg": {
+  "h": 1200,
+  "hash": "92a55d470b86",
+  "w": 1599,
+  "widths": [
+   480,
+   960,
+   1599
+  ]
+ },
+ "lavori/monza-corso-milano/02.jpg": {
+  "h": 1200,
+  "hash": "5c34323234fb",
+  "w": 1599,
+  "widths": [
+   480,
+   960,
+   1599
+  ]
+ },
+ "lavori/monza-corso-milano/03.jpg": {
+  "h": 1599,
+  "hash": "360103cc698a",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "lavori/monza-via-viotti/dopo-01.jpg": {
+  "h": 888,
+  "hash": "bd4eb12029d0",
+  "w": 1600,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/monza-via-viotti/dopo-02.jpg": {
+  "h": 792,
+  "hash": "7e5cf72d1de7",
+  "w": 1600,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/monza-via-viotti/dopo-03.jpg": {
+  "h": 2040,
+  "hash": "2c00d3e2b0a2",
+  "w": 1530,
+  "widths": [
+   480,
+   960,
+   1530
+  ]
+ },
+ "lavori/monza-via-viotti/dopo-04.jpg": {
+  "h": 936,
+  "hash": "78ead8a15d36",
+  "w": 1600,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/monza-via-viotti/durante-01.jpg": {
+  "h": 792,
+  "hash": "209ea5c1aa09",
+  "w": 1600,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/monza-via-viotti/prima-01.jpg": {
+  "h": 900,
+  "hash": "7016b38c4256",
+  "w": 1600,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "lavori/monza-via-viotti/prima-02.jpg": {
+  "h": 1600,
+  "hash": "19d8c13c009c",
+  "w": 900,
+  "widths": [
+   480,
+   900
+  ]
+ },
+ "lavori/monza-via-viotti/prima-03.jpg": {
+  "h": 1600,
+  "hash": "7bad66a82b52",
+  "w": 900,
+  "widths": [
+   480,
+   900
+  ]
+ },
+ "servizi/imbiancature/01.jpg": {
+  "h": 1600,
+  "hash": "b0a0e9fb02db",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/02.jpg": {
+  "h": 1599,
+  "hash": "369704ee5133",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/03.jpg": {
+  "h": 1599,
+  "hash": "5529c164e54e",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/04.jpg": {
+  "h": 1600,
+  "hash": "9080e333c35d",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/05.jpg": {
+  "h": 1599,
+  "hash": "78f0d6e009e4",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/06.jpg": {
+  "h": 1600,
+  "hash": "1080e1ca2e38",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/07.jpg": {
+  "h": 1600,
+  "hash": "55401589d924",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/08.jpg": {
+  "h": 1599,
+  "hash": "13e3140b7c3c",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/09.jpg": {
+  "h": 1600,
+  "hash": "dc81aa261d7b",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/10.jpg": {
+  "h": 960,
+  "hash": "efaf87bc4846",
+  "w": 537,
+  "widths": [
+   480,
+   537
+  ]
+ },
+ "servizi/imbiancature/11.jpg": {
+  "h": 1600,
+  "hash": "a93bbe8b6c12",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/12.jpg": {
+  "h": 1599,
+  "hash": "9b7dec0c3538",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/13.jpg": {
+  "h": 1367,
+  "hash": "c505a73c5905",
+  "w": 1080,
+  "widths": [
+   480,
+   960,
+   1080
+  ]
+ },
+ "servizi/imbiancature/14.jpg": {
+  "h": 1395,
+  "hash": "90b5928f427b",
+  "w": 1080,
+  "widths": [
+   480,
+   960,
+   1080
+  ]
+ },
+ "servizi/imbiancature/15.jpg": {
+  "h": 1600,
+  "hash": "89ec0d0ff164",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/16.jpg": {
+  "h": 1599,
+  "hash": "620587f8ce3f",
+  "w": 1200,
+  "widths": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "servizi/imbiancature/17.jpg": {
+  "h": 788,
+  "hash": "9c2e427cfe5d",
+  "w": 1080,
+  "widths": [
+   480,
+   960,
+   1080
+  ]
+ },
+ "servizi/rivestimenti/01.jpg": {
+  "h": 1024,
+  "hash": "60db666b9748",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/02.jpg": {
+  "h": 1024,
+  "hash": "9299686e0ddb",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/03.jpg": {
+  "h": 1024,
+  "hash": "63368b4d390b",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/04.jpg": {
+  "h": 1024,
+  "hash": "4408b7dff0cf",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/05.jpg": {
+  "h": 1024,
+  "hash": "8378b6fdef34",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/06.jpg": {
+  "h": 1024,
+  "hash": "7670d5feec7d",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/07.jpg": {
+  "h": 1024,
+  "hash": "67b3b107b9e8",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/08.jpg": {
+  "h": 768,
+  "hash": "9d7cb321c788",
+  "w": 1024,
+  "widths": [
+   480,
+   960,
+   1024
+  ]
+ },
+ "servizi/rivestimenti/09.jpg": {
+  "h": 1024,
+  "hash": "7cd59cd4c64f",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/10.jpg": {
+  "h": 768,
+  "hash": "8ddfa29dac8d",
+  "w": 1024,
+  "widths": [
+   480,
+   960,
+   1024
+  ]
+ },
+ "servizi/rivestimenti/11.jpg": {
+  "h": 1024,
+  "hash": "0e6dc15b09b5",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/12.jpg": {
+  "h": 1024,
+  "hash": "d4e7de694fa9",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/13.jpg": {
+  "h": 1024,
+  "hash": "6c0701e8b658",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/rivestimenti/14.jpg": {
+  "h": 768,
+  "hash": "22d98ac2c061",
+  "w": 1024,
+  "widths": [
+   480,
+   960,
+   1024
+  ]
+ },
+ "servizi/rivestimenti/15.jpg": {
+  "h": 768,
+  "hash": "05444f1a24c2",
+  "w": 1024,
+  "widths": [
+   480,
+   960,
+   1024
+  ]
+ },
+ "servizi/rivestimenti/16.jpg": {
+  "h": 768,
+  "hash": "b08d6630fc4b",
+  "w": 1024,
+  "widths": [
+   480,
+   960,
+   1024
+  ]
+ },
+ "servizi/rivestimenti/17.jpg": {
+  "h": 1024,
+  "hash": "5e8f2215c8ae",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/serramenti/01.jpg": {
+  "h": 1425,
+  "hash": "29559da06cbd",
+  "w": 1900,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "servizi/serramenti/04.jpg": {
+  "h": 2533,
+  "hash": "c37608af56df",
+  "w": 1900,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "servizi/serramenti/10.jpg": {
+  "h": 1425,
+  "hash": "30233045ac41",
+  "w": 1900,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "servizi/serramenti/16.jpg": {
+  "h": 1425,
+  "hash": "dbcb6ea7886a",
+  "w": 1900,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "servizi/serramenti/17.jpg": {
+  "h": 1425,
+  "hash": "78e4e6a8e07c",
+  "w": 1900,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "servizi/serramenti/20.jpg": {
+  "h": 1425,
+  "hash": "8f26809f7bed",
+  "w": 1900,
+  "widths": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "servizi/tetti/01.jpg": {
+  "h": 1024,
+  "hash": "aec2ae3bebc7",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/tetti/02.jpg": {
+  "h": 1024,
+  "hash": "4bf8e5b45c15",
+  "w": 768,
+  "widths": [
+   480,
+   768
+  ]
+ },
+ "servizi/tetti/03.jpg": {
+  "h": 768,
+  "hash": "c370defbcb5f",
+  "w": 1024,
+  "widths": [
+   480,
+   960,
+   1024
+  ]
+ },
+ "servizi/tetti/04.jpg": {
+  "h": 1024,
+  "hash": "d131fc6a9c04",
+  "w": 576,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "servizi/tetti/05.jpg": {
+  "h": 1024,
+  "hash": "89db83fcf4b3",
+  "w": 576,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "servizi/tetti/06.jpg": {
+  "h": 1024,
+  "hash": "bb08b4bc39a8",
+  "w": 576,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "servizi/tetti/08.jpg": {
+  "h": 768,
+  "hash": "12669f088cf9",
+  "w": 1024,
+  "widths": [
+   480,
+   960,
+   1024
+  ]
+ },
+ "servizi/tetti/09.jpg": {
+  "h": 655,
+  "hash": "2fbbee75b8e9",
+  "w": 1012,
+  "widths": [
+   480,
+   960,
+   1012
+  ]
+ }
+}

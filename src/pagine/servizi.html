@@ -1,0 +1,50 @@
+<!--meta
+{
+  "percorso": "/servizi/",
+  "titolo": "Servizi · Ristrutturazioni, impianti, facciate, tetti e finiture",
+  "descrizione": "Tutti i servizi di Multiservice, impresa edile di Agrate Brianza: ristrutturazioni chiavi in mano, cappotto termico e facciate, impianti elettrici e idraulici, imbiancature, pavimenti, serramenti e tetti.",
+  "nav": "servizi",
+  "eyebrow": "Servizi",
+  "h1": "Tutto ciò che serve per <em>costruire e rinnovare</em>",
+  "lead": "Dalla singola lavorazione alla ristrutturazione completa: un'unica impresa, personale qualificato e materiali di qualità per ogni intervento.",
+  "hero_img": "lavori/burago-di-molgora/01-nuova-apertura.jpg",
+  "hero_alt": "Nuova apertura verso il giardino durante la ristrutturazione di una villa",
+  "hero_badge": "Villa a Burago di Molgora",
+  "breadcrumb": [["Servizi", "/servizi/"]]
+}
+-->
+<section class="section section--alt" aria-labelledby="servizi-title">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">I nostri servizi</span><h2 id="servizi-title">Scegli il tuo <em>intervento</em></h2></div>
+    {{> servizi_griglia }}
+  </div>
+</section>
+
+<section class="section section--dark on-dark" aria-labelledby="metodo-title">
+  <div class="container method">
+    <div class="method__intro" data-reveal>
+      <span class="eyebrow">Come lavoriamo</span>
+      <h2 id="metodo-title">Un metodo chiaro, <em>dall'inizio alla fine</em></h2>
+      <p class="lead">Ogni intervento viene pianificato con cura e coordinato da un'unica impresa.</p>
+    </div>
+    <ol class="steps">
+      <li class="step" data-reveal><span class="step__num" aria-hidden="true">01</span><div><h3>{{> icon i-metro }}Sopralluogo</h3><p>Valutiamo gli spazi, ascoltiamo le tue esigenze e rileviamo misure e criticità.</p></div></li>
+      <li class="step" data-reveal><span class="step__num" aria-hidden="true">02</span><div><h3>{{> icon i-documento }}Preventivo dettagliato</h3><p>Lavorazioni, materiali, costi e tempi presentati con chiarezza.</p></div></li>
+      <li class="step" data-reveal><span class="step__num" aria-hidden="true">03</span><div><h3>{{> icon i-casco }}Cantiere coordinato</h3><p>Tutte le squadre lavorano in sinergia, senza che tu debba coordinare ditte diverse.</p></div></li>
+      <li class="step" data-reveal><span class="step__num" aria-hidden="true">04</span><div><h3>{{> icon i-chiave }}Consegna</h3><p>Collaudi, pulizia e consegna dell'immobile completo nei tempi stabiliti.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="perche-title">
+  <div class="container">
+    <div class="section-head section-head--center"><span class="eyebrow">Perché sceglierci</span><h2 id="perche-title">Un interlocutore unico, <em>tante competenze</em></h2></div>
+    <div class="features">
+      <div class="feature" data-reveal><span class="feature__icon">{{> icon i-chiave }}</span><h3>Chiavi in mano</h3><p>Dalla progettazione alla posa dei materiali, fino ai collaudi: seguiamo ogni aspetto dei lavori.</p></div>
+      <div class="feature" data-reveal data-d="1"><span class="feature__icon">{{> icon i-qualita }}</span><h3>Qualità certificata</h3><p>Sistema di gestione certificato ISO 9001:2015 e impresa certificata F-Gas.</p></div>
+      <div class="feature" data-reveal data-d="2"><span class="feature__icon">{{> icon i-foglia }}</span><h3>Efficienza energetica</h3><p>Soluzioni per isolamento, serramenti e impianti a consumi contenuti.</p></div>
+    </div>
+  </div>
+</section>
+
+{{> sezione_contatto }}

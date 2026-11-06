@@ -1,0 +1,158 @@
+{
+  "_nota": "Ogni lavoro genera una pagina /lavori/<slug>/. Il primo della lista appare per primo nel sito. 'fase' può essere: prima, durante, dopo (oppure vuoto). 'confronto' indica le due foto da mettere a fianco nel blocco Prima/Dopo.",
+  "categorie": {
+    "ristrutturazioni": "Ristrutturazioni",
+    "facciate": "Facciate e cappotto"
+  },
+  "lavori": [
+    {
+      "slug": "monza-via-viotti",
+      "titolo": "Facciate con cappotto termico",
+      "luogo": "Monza (MB)",
+      "indirizzo": "Via Viotti",
+      "anno": "2025",
+      "categoria": "facciate",
+      "tipologia": "Condominio",
+      "interventi": ["Isolamento a cappotto", "Rasature e finiture", "Decoro geometrico", "Tinteggiatura bicolore"],
+      "servizi": ["facciate-e-cappotto-termico", "imbiancature"],
+      "sommario": "Riqualificazione completa delle facciate di un condominio: cappotto termico, nuove finiture bicolore e decoro geometrico sul fronte cieco.",
+      "testo": [
+        "Le facciate dell'edificio si presentavano grigie, con intonaco segnato dal tempo e senza isolamento. Il progetto ha previsto la posa del cappotto termico su tutti i fronti, la rasatura armata e le nuove finiture.",
+        "Il fronte cieco è stato valorizzato con una cornice geometrica a rilievo, mentre la combinazione di toni chiari e grigi scandisce piani e balconi, restituendo all'edificio un aspetto contemporaneo."
+      ],
+      "copertina": "dopo-01.jpg",
+      "confronto": { "prima": "prima-03.jpg", "dopo": "dopo-03.jpg" },
+      "foto": [
+        { "file": "dopo-01.jpg", "fase": "dopo", "alt": "Condominio in via Viotti a Monza con facciate rinnovate" },
+        { "file": "dopo-02.jpg", "fase": "dopo", "alt": "Fronte cieco con cornice geometrica a rilievo" },
+        { "file": "dopo-03.jpg", "fase": "dopo", "alt": "Vista d'angolo della facciata dopo l'intervento" },
+        { "file": "dopo-04.jpg", "fase": "dopo", "alt": "Facciata con balconi e finitura bicolore" },
+        { "file": "durante-01.jpg", "fase": "durante", "alt": "Pannelli isolanti del cappotto termico in posa" },
+        { "file": "prima-01.jpg", "fase": "prima", "alt": "Facciata dell'edificio prima dei lavori" },
+        { "file": "prima-02.jpg", "fase": "prima", "alt": "Fronte cieco prima dell'intervento" },
+        { "file": "prima-03.jpg", "fase": "prima", "alt": "Vista d'angolo dell'edificio prima dei lavori" }
+      ]
+    },
+    {
+      "slug": "agrate-brianza-via-matteotti",
+      "titolo": "Riqualificazione delle facciate",
+      "luogo": "Agrate Brianza (MB)",
+      "indirizzo": "Via Matteotti",
+      "anno": "2025",
+      "categoria": "facciate",
+      "tipologia": "Condominio",
+      "interventi": ["Ponteggio su tutti i fronti", "Isolamento a cappotto", "Rasature", "Finiture esterne"],
+      "servizi": ["facciate-e-cappotto-termico"],
+      "sommario": "Cantiere di riqualificazione energetica delle facciate di un edificio residenziale, con ponteggio su tutti i fronti e posa del cappotto termico.",
+      "testo": [
+        "Un intervento di riqualificazione su un edificio residenziale di più piani, a pochi passi dalla nostra sede. Il cantiere è stato organizzato con ponteggio su tutti i fronti per lavorare in sicurezza e in tempi rapidi.",
+        "Sulle facciate sono stati posati i pannelli isolanti del cappotto termico, base per le successive rasature e finiture."
+      ],
+      "copertina": "cantiere-02.jpg",
+      "foto": [
+        { "file": "cantiere-02.jpg", "fase": "durante", "alt": "Edificio in via Matteotti con ponteggio e pannelli isolanti" },
+        { "file": "cantiere-01.jpg", "fase": "durante", "alt": "Fronte est del cantiere con ponteggio" },
+        { "file": "cantiere-03.jpg", "fase": "durante", "alt": "Ponteggio su tutto il perimetro dell'edificio" },
+        { "file": "cantiere-04.jpg", "fase": "durante", "alt": "Fronte nord durante la posa del cappotto" },
+        { "file": "cantiere-05.jpg", "fase": "durante", "alt": "Dettaglio del ponteggio e delle facciate in lavorazione" }
+      ]
+    },
+    {
+      "slug": "merate",
+      "titolo": "Ristrutturazione di 12 appartamenti",
+      "luogo": "Merate (LC)",
+      "indirizzo": "",
+      "anno": "2024",
+      "categoria": "ristrutturazioni",
+      "tipologia": "Edificio residenziale",
+      "interventi": ["Demolizioni", "Nuovi impianti", "Bagni", "Pavimenti e parquet", "Finiture"],
+      "servizi": ["ristrutturazioni", "impianti-elettrici-ed-idraulici", "rivestimenti"],
+      "sommario": "Ristrutturazione interna completa di tutti i 12 appartamenti di un edificio residenziale, con gestione unica del cantiere.",
+      "testo": [
+        "In questo cantiere Multiservice si è occupata della ristrutturazione interna completa di tutti i 12 appartamenti dell'edificio.",
+        "Demolizioni e sgombero, nuove tracce per impianti elettrici e idraulici, rifacimento dei bagni, pavimenti e parquet, fino alle finiture: un intervento esteso, coordinato da un'unica impresa."
+      ],
+      "copertina": "01-edificio.jpg",
+      "foto": [
+        { "file": "01-edificio.jpg", "fase": "", "alt": "Edificio di Merate con lo striscione del cantiere Multiservice" },
+        { "file": "02-parquet.jpg", "fase": "dopo", "alt": "Camera con nuovo parquet a spina di pesce" },
+        { "file": "03-camera.jpg", "fase": "dopo", "alt": "Stanza con pareti rasate e nuovo serramento" },
+        { "file": "04-bagno-demolizione.jpg", "fase": "durante", "alt": "Bagno dopo la demolizione dei vecchi rivestimenti" },
+        { "file": "05-tracce-impianti.jpg", "fase": "durante", "alt": "Tracce per i nuovi impianti" },
+        { "file": "06-sgombero.jpg", "fase": "durante", "alt": "Scivolo per lo sgombero dei materiali di risulta" }
+      ]
+    },
+    {
+      "slug": "burago-di-molgora",
+      "titolo": "Ristrutturazione totale di una villa",
+      "luogo": "Burago di Molgora (MB)",
+      "indirizzo": "",
+      "anno": "2024",
+      "categoria": "ristrutturazioni",
+      "tipologia": "Villa",
+      "interventi": ["Demolizioni", "Nuova apertura", "Modifica della scala", "Impianti", "Bagno", "Pavimenti"],
+      "servizi": ["ristrutturazioni", "impianti-elettrici-ed-idraulici", "rivestimenti"],
+      "sommario": "Ristrutturazione totale di interni ed esterni: nuove aperture, modifica della scala, impianti, bagno e pavimenti.",
+      "testo": [
+        "Una ristrutturazione totale di interni ed esterni. Dopo le demolizioni è stata realizzata una nuova grande apertura verso il giardino ed è stata modificata la scala interna.",
+        "Il cantiere è proseguito con le tracce per i nuovi impianti, il rifacimento del bagno e la posa dei pavimenti in grandi lastre."
+      ],
+      "copertina": "01-nuova-apertura.jpg",
+      "foto": [
+        { "file": "01-nuova-apertura.jpg", "fase": "durante", "alt": "Nuova apertura verso il giardino" },
+        { "file": "02-demolizione.jpg", "fase": "durante", "alt": "Demolizioni interne" },
+        { "file": "03-modifica-scala.jpg", "fase": "durante", "alt": "Modifica della scala interna" },
+        { "file": "04-tracce.jpg", "fase": "durante", "alt": "Tracce per gli impianti del bagno" },
+        { "file": "05-tracce-bagno.jpg", "fase": "durante", "alt": "Nuovi scarichi e alimentazioni del bagno" },
+        { "file": "06-bagno.jpg", "fase": "durante", "alt": "Bagno in fase di rifacimento" },
+        { "file": "07-posa-pavimento.jpg", "fase": "durante", "alt": "Posa del pavimento in grandi lastre" }
+      ]
+    },
+    {
+      "slug": "milano",
+      "titolo": "Ristrutturazione interna di un appartamento",
+      "luogo": "Milano",
+      "indirizzo": "",
+      "anno": "2025",
+      "categoria": "ristrutturazioni",
+      "tipologia": "Appartamento",
+      "interventi": ["Opere murarie", "Controsoffitti", "Impianti", "Rasature"],
+      "servizi": ["ristrutturazioni", "impianti-elettrici-ed-idraulici"],
+      "sommario": "Ristrutturazione interna di un appartamento a Milano: opere murarie, controsoffitti, impianti e preparazione delle superfici.",
+      "testo": [
+        "Ristrutturazione interna di un appartamento in città, con opere murarie, nuovi controsoffitti, predisposizione degli impianti e rasatura di pareti e soffitti per le finiture."
+      ],
+      "copertina": "01.jpg",
+      "foto": [
+        { "file": "01.jpg", "fase": "durante", "alt": "Lavori a soffitto in un appartamento a Milano" },
+        { "file": "02.jpg", "fase": "durante", "alt": "Ambiente durante le opere murarie" },
+        { "file": "03.jpg", "fase": "durante", "alt": "Controsoffitto e pareti in lavorazione" },
+        { "file": "04.jpg", "fase": "durante", "alt": "Predisposizioni impiantistiche" },
+        { "file": "05.jpg", "fase": "durante", "alt": "Stanza con pareti rasate" },
+        { "file": "06.jpg", "fase": "durante", "alt": "Ponteggio mobile per i lavori a soffitto" },
+        { "file": "07.jpg", "fase": "durante", "alt": "Ambiente pronto per le finiture" }
+      ]
+    },
+    {
+      "slug": "monza-corso-milano",
+      "titolo": "Ristrutturazione totale di un appartamento",
+      "luogo": "Monza (MB)",
+      "indirizzo": "Corso Milano",
+      "anno": "2023",
+      "categoria": "ristrutturazioni",
+      "tipologia": "Appartamento",
+      "interventi": ["Demolizioni", "Impianti", "Rivestimenti decorativi", "Finiture"],
+      "servizi": ["ristrutturazioni", "rivestimenti"],
+      "sommario": "Ristrutturazione totale degli interni di un appartamento, con rivestimenti decorativi su misura.",
+      "testo": [
+        "Ristrutturazione totale degli interni di un appartamento a Monza, dalle demolizioni alla posa di rivestimenti decorativi su misura."
+      ],
+      "copertina": "01.jpg",
+      "foto": [
+        { "file": "01.jpg", "fase": "durante", "alt": "Rivestimento decorativo in posa" },
+        { "file": "02.jpg", "fase": "durante", "alt": "Parete con rivestimento decorativo e preparazione delle superfici" },
+        { "file": "03.jpg", "fase": "durante", "alt": "Pareti preparate per le finiture" }
+      ]
+    }
+  ]
+}

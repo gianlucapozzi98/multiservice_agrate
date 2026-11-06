@@ -1,0 +1,22 @@
+<!--meta
+{
+  "percorso": "/404.html",
+  "titolo": "Pagina non trovata",
+  "descrizione": "La pagina che cerchi non esiste o è stata spostata.",
+  "no_hero": true,
+  "ha_form": false,
+  "noindex": true
+}
+-->
+<section class="notfound">
+  <div class="container--narrow" data-reveal>
+    <p class="notfound__code" aria-hidden="true">404</p>
+    <h1>Questa pagina <em>non esiste</em>.</h1>
+    <p class="lead">Forse è stata spostata con il nuovo sito. Puoi tornare alla home, guardare i nostri lavori o chiamarci direttamente.</p>
+    <div class="btn-row btn-row--center">
+      <a class="btn btn--primary" href="/">Torna alla home {{> icon i-freccia | icon icon--arrow }}</a>
+      <a class="btn btn--ghost" href="/lavori/">Lavori realizzati</a>
+      <a class="btn btn--ghost" href="tel:{{ telefono_href }}">{{> icon i-telefono }} {{ telefono }}</a>
+    </div>
+  </div>
+</section>

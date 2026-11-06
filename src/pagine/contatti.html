@@ -1,0 +1,35 @@
+<!--meta
+{
+  "percorso": "/contatti/",
+  "titolo": "Contatti · Richiedi un preventivo ad Agrate Brianza",
+  "descrizione": "Contatta Multiservice, impresa edile di Agrate Brianza: telefono 039 598 77 48, WhatsApp 333 894 9435, via Cesare Battisti 8/10. Sopralluogo e preventivo senza impegno.",
+  "nav": "contatti",
+  "eyebrow": "Contatti",
+  "h1": "Parliamo del tuo <em>progetto</em>",
+  "lead": "Chiamaci, scrivici su WhatsApp o compila il modulo: fissiamo un sopralluogo e ti prepariamo un preventivo dettagliato, senza impegno.",
+  "hero_cta": false,
+  "breadcrumb": [["Contatti", "/contatti/"]]
+}
+-->
+<section class="section" id="preventivo" aria-labelledby="contatti-title">
+  <div class="container contact">
+    <div class="contact__intro" data-reveal>
+      <span class="eyebrow">Recapiti</span>
+      <h2 id="contatti-title">Siamo a tua <em>disposizione</em></h2>
+      <p class="muted">Ti aspetta personale cortese, preparato e disponibile a trovare la soluzione giusta per la tua casa.</p>
+      {{> contatti_lista }}
+      <p class="muted">Sede legale: {{ sede_legale }} · P.IVA {{ partita_iva }}</p>
+    </div>
+    {{> form }}
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="dove-title">
+  <div class="container">
+    <div class="section-head section-head--row">
+      <div><span class="eyebrow">Dove siamo</span><h2 id="dove-title">Ad Agrate Brianza, <em>in via Cesare Battisti</em></h2></div>
+      <a class="link-arrow" href="{{ google_maps }}" target="_blank" rel="noopener noreferrer">Indicazioni stradali {{> icon i-esterno }}</a>
+    </div>
+    {{> mappa }}
+  </div>
+</section>
