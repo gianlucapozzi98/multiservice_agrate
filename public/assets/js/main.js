@@ -5,6 +5,8 @@
   var doc = document.documentElement;
   doc.classList.add("js");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Su iPhone/iPad lo stato :active (pressione al tocco) si attiva solo se esiste un listener touchstart
+  document.addEventListener("touchstart", function () {}, { passive: true });
   var cfg = window.MS_CONFIG || readConfig();
 
   function readConfig() {
