@@ -1118,6 +1118,15 @@ def build_icons():
     src = FOTO / "azienda/logo-monogramma-512.jpg"
     if not src.exists():
         return
+    og_src = FOTO / "lavori/monza-via-viotti/dopo-01.jpg"
+    # Icone e immagine social si rigenerano solo se cambiano le foto di partenza:
+    # versioni diverse di Pillow producono PNG uguali a vista ma con byte diversi.
+    firma = "icone-v1:" + file_hash(src) + ":" + (file_hash(og_src) if og_src.exists() else "")
+    uscite = ["apple-touch-icon.png", "favicon-32.png", "assets/img/icon-192.png", "assets/img/icon-512.png",
+              "assets/img/logo-multiservice.png"] + (["assets/img/og-multiservice.jpg"] if og_src.exists() else [])
+    if CACHE.get("_icone") == firma and all((OUT / u).exists() for u in uscite):
+        return
+    CACHE["_icone"] = firma
     gray = Image.open(src).convert("L").resize((1024, 1024), Image.LANCZOS)
     mask = gray.point(lambda v: 255 if v < 128 else 0).filter(ImageFilter.GaussianBlur(1.2))
     bbox = mask.getbbox()
@@ -1146,7 +1155,6 @@ def build_icons():
     logo.convert("RGB").save(OUT / "assets/img/logo-multiservice.png")
 
     # Immagine per la condivisione social (1200x630)
-    og_src = FOTO / "lavori/monza-via-viotti/dopo-01.jpg"
     if og_src.exists():
         im = ImageOps.exif_transpose(Image.open(og_src)).convert("RGB")
         im = ImageOps.fit(im, (1200, 630), Image.LANCZOS, centering=(0.6, 0.45))
@@ -1196,7 +1204,7 @@ def main():
     build_misc()
     # elimina le versioni WebP di foto non più usate
     for rel in list(CACHE):
-        if rel not in USED_IMAGES:
+        if rel not in USED_IMAGES and not rel.startswith("_"):
             base = "assets/img/" + rel.rsplit(".", 1)[0]
             for w in CACHE[rel]["widths"]:
                 p = OUT / f"{base}-{w}.webp"
