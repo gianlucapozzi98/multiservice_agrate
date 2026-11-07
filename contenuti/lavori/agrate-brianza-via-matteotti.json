@@ -1,0 +1,40 @@
+{
+  "titolo": "Riqualificazione delle facciate",
+  "luogo": "Agrate Brianza (MB)",
+  "indirizzo": "Via Matteotti",
+  "anno": 2025,
+  "categoria": "facciate",
+  "tipologia": "Condominio",
+  "interventi": [
+    "Ponteggio su tutti i fronti",
+    "Isolamento a cappotto",
+    "Rasature",
+    "Finiture esterne"
+  ],
+  "servizi": [
+    "facciate-e-cappotto-termico"
+  ],
+  "sommario": "Cantiere di riqualificazione energetica delle facciate di un edificio residenziale, con ponteggio su tutti i fronti e posa del cappotto termico.",
+  "testo": "Un intervento di riqualificazione su un edificio residenziale di più piani, a pochi passi dalla nostra sede. Il cantiere è stato organizzato con ponteggio su tutti i fronti per lavorare in sicurezza e in tempi rapidi.\n\nSulle facciate sono stati posati i pannelli isolanti del cappotto termico, base per le successive rasature e finiture.",
+  "foto_dopo": [],
+  "foto_durante": [
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-02.jpg",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-01.jpg",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-03.jpg",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-04.jpg",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-05.jpg"
+  ],
+  "foto_prima": [],
+  "foto_altre": [],
+  "copertina": "/foto/lavori/agrate-brianza-via-matteotti/cantiere-02.jpg",
+  "bozza": false,
+  "inserito": "2026-11-06",
+  "descrizioni": {
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-02.jpg": "Edificio in via Matteotti con ponteggio e pannelli isolanti",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-01.jpg": "Fronte est del cantiere con ponteggio",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-03.jpg": "Ponteggio su tutto il perimetro dell'edificio",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-04.jpg": "Fronte nord durante la posa del cappotto",
+    "/foto/lavori/agrate-brianza-via-matteotti/cantiere-05.jpg": "Dettaglio del ponteggio e delle facciate in lavorazione"
+  },
+  "_ordine": 2
+}

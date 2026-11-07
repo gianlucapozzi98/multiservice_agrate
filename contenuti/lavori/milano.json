@@ -1,0 +1,44 @@
+{
+  "titolo": "Ristrutturazione interna di un appartamento",
+  "luogo": "Milano",
+  "anno": 2025,
+  "categoria": "ristrutturazioni",
+  "tipologia": "Appartamento",
+  "interventi": [
+    "Opere murarie",
+    "Controsoffitti",
+    "Impianti",
+    "Rasature"
+  ],
+  "servizi": [
+    "ristrutturazioni",
+    "impianti-elettrici-ed-idraulici"
+  ],
+  "sommario": "Ristrutturazione interna di un appartamento a Milano: opere murarie, controsoffitti, impianti e preparazione delle superfici.",
+  "testo": "Ristrutturazione interna di un appartamento in città, con opere murarie, nuovi controsoffitti, predisposizione degli impianti e rasatura di pareti e soffitti per le finiture.",
+  "foto_dopo": [],
+  "foto_durante": [
+    "/foto/lavori/milano/01.jpg",
+    "/foto/lavori/milano/02.jpg",
+    "/foto/lavori/milano/03.jpg",
+    "/foto/lavori/milano/04.jpg",
+    "/foto/lavori/milano/05.jpg",
+    "/foto/lavori/milano/06.jpg",
+    "/foto/lavori/milano/07.jpg"
+  ],
+  "foto_prima": [],
+  "foto_altre": [],
+  "copertina": "/foto/lavori/milano/01.jpg",
+  "bozza": false,
+  "inserito": "2026-11-06",
+  "descrizioni": {
+    "/foto/lavori/milano/01.jpg": "Lavori a soffitto in un appartamento a Milano",
+    "/foto/lavori/milano/02.jpg": "Ambiente durante le opere murarie",
+    "/foto/lavori/milano/03.jpg": "Controsoffitto e pareti in lavorazione",
+    "/foto/lavori/milano/04.jpg": "Predisposizioni impiantistiche",
+    "/foto/lavori/milano/05.jpg": "Stanza con pareti rasate",
+    "/foto/lavori/milano/06.jpg": "Ponteggio mobile per i lavori a soffitto",
+    "/foto/lavori/milano/07.jpg": "Ambiente pronto per le finiture"
+  },
+  "_ordine": 5
+}

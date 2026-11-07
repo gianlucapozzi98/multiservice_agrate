@@ -5,7 +5,10 @@ Genera il sito Multiservice nella cartella public/.
     python3 build.py
 
 Legge:
-  contenuti/*.json   dati aziendali, servizi, lavori (cantieri)
+  contenuti/*.json   dati aziendali, servizi, tipologie dei lavori
+  contenuti/lavori/  un file JSON per ogni lavoro (cantiere); il nome del file è
+                     l'indirizzo della pagina (merate.json -> /lavori/merate/).
+                     L'impresa li gestisce dal pannello Pages CMS (vedi .pages.yml).
   src/pagine/*.html  testi delle pagine fisse (home, chi siamo, contatti, privacy...)
   src/assets/        CSS, JS, font, icone
   foto/              foto originali (JPG/PNG/WebP): vengono convertite in WebP
@@ -21,6 +24,8 @@ import json
 import re
 import shutil
 import sys
+import unicodedata
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -46,13 +51,157 @@ def load_json(name):
 
 A = load_json("azienda.json")
 SERVIZI = load_json("servizi.json")["servizi"]
-LAV = load_json("lavori.json")
-LAVORI = LAV["lavori"]
-CATEGORIE = LAV["categorie"]
+CATEGORIE = load_json("categorie-lavori.json")["categorie"]
 SERV_BY_SLUG = {s["slug"]: s for s in SERVIZI}
-LAV_BY_SLUG = {l["slug"]: l for l in LAVORI}
 OGGI = datetime.date.today()
 DOMINIO = A["dominio"].rstrip("/")
+
+
+# --------------------------------------------------------------------------
+# Lavori (cantieri): contenuti/lavori/*.json, scritti a mano o dal pannello.
+# Un dato mancante o sbagliato non deve fermare il sito: il lavoro o la foto
+# vengono saltati con un avviso e il resto viene pubblicato normalmente.
+# --------------------------------------------------------------------------
+# Ordine delle foto nella galleria: prima i risultati, poi il cantiere, poi lo stato iniziale
+GALLERIA_FASI = (("foto_dopo", "dopo"), ("foto_altre", ""), ("foto_durante", "durante"), ("foto_prima", "prima"))
+FASE_TESTO = {"dopo": "a lavori finiti", "durante": "durante i lavori", "prima": "prima dei lavori", "": ""}
+AVVISI = []
+
+
+def avviso(msg):
+    AVVISI.append(msg)
+    print("  ATTENZIONE: " + msg)
+
+
+def in_luogo(nome):
+    """«a Monza», ma «ad Agrate Brianza»."""
+    return ("ad " if nome[:1].lower() == "a" else "a ") + nome
+
+
+def slugify(testo):
+    testo = unicodedata.normalize("NFKD", str(testo)).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", testo.lower()).strip("-")
+
+
+def percorso_foto(valore, slug):
+    """Percorso relativo a foto/ di un valore scritto dal pannello ("/foto/lavori/x/1.jpg").
+    Restituisce None se il file non esiste."""
+    if isinstance(valore, list):
+        valore = valore[0] if valore else None
+    if not valore or not isinstance(valore, str):
+        return None
+    v = urllib.parse.unquote(valore.strip().split("?")[0].split("#")[0]).lstrip("/")
+    if v.startswith("foto/"):
+        v = v[len("foto/"):]
+    elif "/" not in v:
+        v = f"lavori/{slug}/{v}"
+    if not v or ".." in v.split("/") or not (FOTO / v).is_file():
+        return None
+    return v
+
+
+def carica_lavori():
+    lavori = []
+    for path in sorted((CONT / "lavori").glob("*.json")):
+        nome = "contenuti/lavori/" + path.name
+        try:
+            d = json.loads(path.read_text(encoding="utf-8"))
+        except ValueError as err:
+            avviso(f"{nome} non è un JSON valido ({err}): lavoro non pubblicato")
+            continue
+        if not isinstance(d, dict):
+            avviso(f"{nome} non contiene un lavoro: saltato")
+            continue
+        if d.get("bozza"):
+            print(f"  bozza, non pubblicata: {nome}")
+            continue
+        slug = slugify(path.stem)
+        titolo = str(d.get("titolo") or "").strip()
+        luogo = str(d.get("luogo") or "").strip()
+        if not slug or not titolo or not luogo:
+            avviso(f"{nome}: mancano titolo o luogo, lavoro non pubblicato")
+            continue
+        comune = luogo.split(" (")[0].strip()
+        descrizioni = d.get("descrizioni") if isinstance(d.get("descrizioni"), dict) else {}
+
+        def descrizione(valore, rel):
+            return descrizioni.get(valore) or descrizioni.get("/foto/" + rel) or ""
+
+        foto, viste = [], set()
+        for campo, fase in GALLERIA_FASI:
+            valori = d.get(campo) or []
+            for v in valori if isinstance(valori, list) else [valori]:
+                rel = percorso_foto(v, slug)
+                if rel is None:
+                    avviso(f"{nome}: foto non trovata ({v}), non mostrata")
+                elif rel not in viste:
+                    viste.add(rel)
+                    foto.append({"src": rel, "fase": fase, "alt": descrizione(v, rel)})
+        for i, f in enumerate(foto, 1):
+            if not f["alt"]:
+                fase = FASE_TESTO[f["fase"]]
+                f["alt"] = f"{titolo} {in_luogo(comune)}" + (f", {fase}" if fase else "") + f" (foto {i})"
+
+        cop = percorso_foto(d.get("copertina"), slug)
+        if d.get("copertina") and cop is None:
+            avviso(f"{nome}: foto di copertina non trovata ({d.get('copertina')}), uso la prima foto")
+        if cop:
+            gia = next((f for f in foto if f["src"] == cop), None)
+            copertina = {"src": cop, "alt": gia["alt"] if gia else (descrizione(d.get("copertina"), cop) or titolo)}
+        elif foto:
+            copertina = {"src": foto[0]["src"], "alt": foto[0]["alt"]}
+        else:
+            avviso(f"{nome}: nessuna foto, lavoro non pubblicato")
+            continue
+
+        confronto = None
+        c = d.get("confronto") if isinstance(d.get("confronto"), dict) else {}
+        if c.get("prima") or c.get("dopo"):
+            prima, dopo = percorso_foto(c.get("prima"), slug), percorso_foto(c.get("dopo"), slug)
+            if prima and dopo:
+                alt = {f["src"]: f["alt"] for f in foto}
+                confronto = {
+                    "prima": {"src": prima, "alt": alt.get(prima) or descrizione(c.get("prima"), prima) or f"{titolo} {in_luogo(comune)}, prima dei lavori"},
+                    "dopo": {"src": dopo, "alt": alt.get(dopo) or descrizione(c.get("dopo"), dopo) or f"{titolo} {in_luogo(comune)}, a lavori finiti"},
+                }
+            else:
+                avviso(f"{nome}: per il confronto servono entrambe le foto (prima e dopo), confronto non mostrato")
+
+        testo = d.get("testo") or []
+        if isinstance(testo, str):
+            testo = re.split(r"\n\s*\n", testo)
+        testo = [re.sub(r"\s*\n\s*", " ", str(p)).strip() for p in testo if str(p).strip()]
+        sommario = str(d.get("sommario") or "").strip() or (testo[0][:180] if testo else f"{titolo} {in_luogo(luogo)}.")
+        anno = str(d.get("anno") or "").strip() or str(d.get("inserito") or OGGI.year)[:4]
+        categoria = str(d.get("categoria") or "").strip()
+        if categoria not in CATEGORIE:
+            avviso(f"{nome}: tipologia '{categoria}' non prevista in contenuti/categorie-lavori.json")
+        servizi = []
+        for s in d.get("servizi") or []:
+            if s in SERV_BY_SLUG:
+                servizi.append(s)
+            else:
+                avviso(f"{nome}: servizio '{s}' sconosciuto, ignorato")
+        lavori.append({
+            "slug": slug, "titolo": titolo, "luogo": luogo, "comune": comune,
+            "indirizzo": str(d.get("indirizzo") or "").strip(),
+            "anno": anno, "categoria": categoria,
+            "tipologia": str(d.get("tipologia") or "").strip(),
+            "interventi": [str(t).strip() for t in d.get("interventi") or [] if str(t).strip()],
+            "servizi": servizi, "sommario": sommario, "testo": testo,
+            "foto": foto, "copertina": copertina, "confronto": confronto,
+            "_inserito": str(d.get("inserito") or ""), "_ordine": d.get("_ordine") or 0,
+        })
+    # Dal più recente: anno di fine lavori, poi data di inserimento nel sito
+    lavori.sort(key=lambda l: l["slug"])
+    lavori.sort(key=lambda l: l["_ordine"])
+    lavori.sort(key=lambda l: l["_inserito"], reverse=True)
+    lavori.sort(key=lambda l: int(l["anno"]) if l["anno"].isdigit() else 0, reverse=True)
+    return lavori
+
+
+LAVORI = carica_lavori()
+LAV_BY_SLUG = {l["slug"]: l for l in LAVORI}
 
 
 def esc(value):
@@ -198,11 +347,9 @@ def servizi_links(escludi=""):
 
 
 def work_card(l, sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw", extra=""):
-    cover = f'lavori/{l["slug"]}/{l["copertina"]}'
-    alt = next((f["alt"] for f in l["foto"] if f["file"] == l["copertina"]), l["titolo"])
     return (
-        f'<a class="work-card" href="/lavori/{l["slug"]}/" data-cat="{l["categoria"]}"{extra}>'
-        f'<div class="work-card__img">{img(cover, alt, sizes)}'
+        f'<a class="work-card" href="/lavori/{l["slug"]}/" data-cat="{esc(l["categoria"])}"{extra}>'
+        f'<div class="work-card__img">{img(l["copertina"]["src"], l["copertina"]["alt"], sizes)}'
         f'<span class="work-card__tag">{esc(CATEGORIE.get(l["categoria"], ""))}</span></div>'
         f'<div class="work-card__body"><p class="work-card__meta">{icon("i-pin")}{esc(l["luogo"])} · {esc(l["anno"])}</p>'
         f'<h3>{esc(l["titolo"])}</h3><p class="muted">{esc(l["sommario"])}</p>'
@@ -234,14 +381,12 @@ def lavori_griglia():
 
 
 def confronto(slug):
-    l = LAV_BY_SLUG[slug]
-    c = l.get("confronto")
+    c = LAV_BY_SLUG[slug]["confronto"]
     if not c:
         return ""
-    alt = {f["file"]: f["alt"] for f in l["foto"]}
     sizes = "(max-width: 860px) 50vw, 30vw"
-    prima = img("lavori/" + slug + "/" + c["prima"], alt.get(c["prima"], "Prima"), sizes)
-    dopo = img("lavori/" + slug + "/" + c["dopo"], alt.get(c["dopo"], "Dopo"), sizes)
+    prima = img(c["prima"]["src"], c["prima"]["alt"], sizes)
+    dopo = img(c["dopo"]["src"], c["dopo"]["alt"], sizes)
     return (
         '<div class="compare">'
         f'<figure class="img-reveal">{prima}<figcaption>Prima</figcaption></figure>'
@@ -459,7 +604,7 @@ VALORI = {
     "facebook": A["facebook"],
     "n_lavori": str(len(LAVORI)),
     "n_servizi": str(len(SERVIZI)),
-    "data_aggiornamento": OGGI.strftime("%d/%m/%Y"),
+    "data_aggiornamento": A["policy_aggiornate_il"],
 }
 
 
@@ -754,6 +899,12 @@ def layout(meta, body):
 # Pagine
 # --------------------------------------------------------------------------
 PAGINE = []  # (percorso, priorità sitemap)
+# Data dell'ultima modifica reale di ogni pagina (per la sitemap): cambia solo se cambia l'HTML
+DATE_FILE = SRC / "pagine-date.json"
+try:
+    DATE_PAGINE = json.loads(DATE_FILE.read_text(encoding="utf-8"))
+except (OSError, ValueError):
+    DATE_PAGINE = {}
 
 
 def write_page(percorso, html_text, priority="0.7"):
@@ -764,6 +915,9 @@ def write_page(percorso, html_text, priority="0.7"):
     target.write_text(html_text, encoding="utf-8")
     if not percorso.endswith(".html"):
         PAGINE.append((percorso, priority))
+        impronta = hashlib.sha1(html_text.encode("utf-8")).hexdigest()[:12]
+        if DATE_PAGINE.get(percorso, {}).get("hash") != impronta:
+            DATE_PAGINE[percorso] = {"hash": impronta, "data": OGGI.isoformat()}
 
 
 def parse_page(path):
@@ -875,20 +1029,20 @@ def build_work_pages():
             f'<a href="/{sl}/">{esc(SERV_BY_SLUG[sl]["nome_esteso"])}</a>' for sl in l.get("servizi", []) if sl in SERV_BY_SLUG
         )
         facts = (
-            f'<dl class="facts" data-reveal><div><dt>Luogo</dt><dd>{esc(l["luogo"])}{(" · " + esc(l["indirizzo"])) if l.get("indirizzo") else ""}</dd></div>'
+            f'<dl class="facts" data-reveal><div><dt>Luogo</dt><dd>{esc(l["luogo"])}{(" · " + esc(l["indirizzo"])) if l["indirizzo"] else ""}</dd></div>'
             f'<div><dt>Anno</dt><dd>{esc(l["anno"])}</dd></div>'
-            f'<div><dt>Tipologia</dt><dd>{esc(l["tipologia"])}</dd></div>'
-            f'<div><dt>Servizi</dt><dd>{servizi_txt}</dd></div></dl>'
+            + (f'<div><dt>Tipologia</dt><dd>{esc(l["tipologia"])}</dd></div>' if l["tipologia"] else "")
+            + (f'<div><dt>Servizi</dt><dd>{servizi_txt}</dd></div>' if servizi_txt else "")
+            + "</dl>"
         )
-        tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in l.get("interventi", []))
+        tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in l["interventi"])
         testo = "".join(f"<p>{esc(p)}</p>" for p in l["testo"])
         cmp_html = ""
-        if l.get("confronto"):
+        if l["confronto"]:
             cmp_html = f'<div data-reveal data-d="1">{confronto(l["slug"])}</div>'
         else:
-            cover = f'lavori/{l["slug"]}/{l["copertina"]}'
-            cmp_html = f'<div class="img-reveal page-hero__media" data-d="1">{img(cover, l["titolo"], "(max-width: 860px) 100vw, 45vw")}</div>'
-        foto = [dict(src=f'lavori/{l["slug"]}/{f["file"]}', alt=f["alt"], fase=f.get("fase", "")) for f in l["foto"]]
+            cmp_html = f'<div class="img-reveal page-hero__media" data-d="1">{img(l["copertina"]["src"], l["titolo"], "(max-width: 860px) 100vw, 45vw")}</div>'
+        foto = l["foto"]
         body = f"""<section class="section"><div class="container">
   {facts}
   <div class="work-detail">
@@ -909,17 +1063,17 @@ def build_work_pages():
   </div>
 </div></section>
 {sezione_contatto()}"""
-        cover = f'lavori/{l["slug"]}/{l["copertina"]}'
+        cover = l["copertina"]["src"]
         meta = {
             "percorso": f'/lavori/{l["slug"]}/',
-            "titolo": f'{l["titolo"]} a {l["luogo"]}',
+            "titolo": f'{l["titolo"]} {in_luogo(l["luogo"])}',
             "descrizione": l["sommario"],
             "nav": "lavori",
-            "eyebrow": f'{CATEGORIE.get(l["categoria"], "")} · {l["anno"]}',
-            "h1": esc(l["titolo"]) + f' <em>a {esc(l["luogo"].split(" (")[0])}</em>',
+            "eyebrow": " · ".join(x for x in (CATEGORIE.get(l["categoria"], ""), l["anno"]) if x),
+            "h1": esc(l["titolo"]) + f' <em>{esc(in_luogo(l["comune"]))}</em>',
             "lead": esc(l["sommario"]),
             "hero_img": cover,
-            "hero_alt": next((f["alt"] for f in l["foto"] if f["file"] == l["copertina"]), l["titolo"]),
+            "hero_alt": l["copertina"]["alt"],
             "hero_badge": f'{len(l["foto"])} foto · {l["luogo"]}',
             "hero_badge_icon": "i-pin",
             "breadcrumb": [["Lavori", "/lavori/"], [l["titolo"], f'/lavori/{l["slug"]}/']],
@@ -1010,7 +1164,7 @@ def build_icons():
 def build_misc():
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for percorso, prio in sorted(PAGINE, key=lambda x: (-float(x[1]), x[0])):
-        sitemap.append(f"  <url><loc>{DOMINIO}{percorso}</loc><lastmod>{OGGI.isoformat()}</lastmod><priority>{prio}</priority></url>")
+        sitemap.append(f"  <url><loc>{DOMINIO}{percorso}</loc><lastmod>{DATE_PAGINE[percorso]['data']}</lastmod><priority>{prio}</priority></url>")
     sitemap.append("</urlset>")
     (OUT / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: {DOMINIO}/sitemap.xml\n", encoding="utf-8")
@@ -1049,8 +1203,18 @@ def main():
                 if p.exists():
                     p.unlink()
             del CACHE[rel]
+    # cartelle rimaste vuote (lavori eliminati, foto tolte)
+    for d in sorted((p for p in OUT.rglob("*") if p.is_dir()), key=lambda p: len(p.parts), reverse=True):
+        if not any(d.iterdir()):
+            d.rmdir()
     CACHE_FILE.write_text(json.dumps(CACHE, indent=1, sort_keys=True), encoding="utf-8")
-    print(f"Fatto: {len(PAGINE)} pagine, {len(USED_IMAGES)} foto.")
+    pubblicate = {p for p, _ in PAGINE}
+    DATE_FILE.write_text(json.dumps({p: v for p, v in DATE_PAGINE.items() if p in pubblicate}, indent=1, sort_keys=True), encoding="utf-8")
+    print(f"Fatto: {len(PAGINE)} pagine, {len(USED_IMAGES)} foto, {len(LAVORI)} lavori pubblicati.")
+    if AVVISI:
+        print(f"{len(AVVISI)} avvisi (il resto del sito è stato generato normalmente):")
+        for a in AVVISI:
+            print("  - " + a)
 
 
 if __name__ == "__main__":

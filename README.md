@@ -7,7 +7,9 @@ build.py                genera il sito in public/ (python3 build.py)
 contenuti/
   azienda.json          dati aziendali: telefoni, email, sedi, P.IVA, orari, zone, recensioni, certificazioni
   servizi.json          i 7 servizi: testi, elenco lavorazioni, galleria foto, domande frequenti
-  lavori.json           i cantieri (portfolio): testi e foto prima / durante / dopo
+  categorie-lavori.json tipologie dei lavori (filtri della pagina Lavori)
+  lavori/<nome>.json    un file per cantiere: testi e foto prima / durante / dopo;
+                        il nome del file è l'indirizzo della pagina (/lavori/<nome>/)
 foto/                   foto originali (sorgenti, non vengono pubblicate così come sono)
   lavori/<cantiere>/    una cartella per cantiere
   servizi/<servizio>/   gallerie di imbiancature, rivestimenti, tetti, serramenti
@@ -19,8 +21,11 @@ src/
   assets/img/icons.svg  icone e logo vettoriale
   assets/fonts/         Archivo e Instrument Serif (SIL Open Font License), ospitati sul sito
   immagini.json         registro delle foto già convertite (non modificare a mano)
+  pagine-date.json      data dell'ultima modifica reale di ogni pagina, per la sitemap (automatico)
 api/contatti.js         funzione Vercel che riceve il modulo e invia l'email
 vercel.json             header di sicurezza, cache, redirect dai vecchi indirizzi WordPress
+.pages.yml              configurazione del pannello Pages CMS (moduli per i lavori)
+.github/workflows/      aggiorna-sito.yml: rigenera public/ a ogni modifica di contenuti o foto
 public/                 SITO PRONTO: è la cartella che viene pubblicata
 ```
 
@@ -46,13 +51,31 @@ e apri http://127.0.0.1:5173 (in locale il modulo non invia email: compare la sc
 
 ## Aggiornare i contenuti
 
-**Aggiungere un cantiere**: crea `foto/lavori/<nome-cantiere>/` con le foto (JPG), poi aggiungi un blocco in `contenuti/lavori.json` copiando uno esistente (titolo, luogo, anno, categoria, testo, elenco foto con `fase` prima / durante / dopo). Il primo cantiere della lista è quello in evidenza in home. Rigenera con `python3 build.py`.
+### Dal pannello (per l'impresa)
+
+L'impresa aggiunge e modifica i lavori da **[app.pagescms.org](https://app.pagescms.org)**, accedendo con la propria email: nessun account GitHub. Ogni salvataggio crea un commit; la GitHub Action `aggiorna-sito.yml` rigenera `public/` (con Pillow, convertendo solo le foto nuove) e salva il risultato; Vercel pubblica. In tutto un paio di minuti.
+
+- Ordine nel sito: anno di fine lavori (dal più recente), poi data di inserimento. I primi 4 compaiono in home.
+- Le foto si caricano nei campi «a lavori finiti», «durante», «prima» e «altre»: in galleria compaiono in quest'ordine, con l'etichetta della fase. La descrizione per i lettori di schermo e Google è generata da titolo, comune e fase (le descrizioni scritte a mano dei cantieri iniziali sono nel campo nascosto `descrizioni`).
+- **Limite**: Pages CMS non accetta file sopra ~3 MB (limite di Vercel sulle richieste, 4,5 MB, con l'invio in base64). Le foto più pesanti vanno ridotte prima: vedi la guida per l'impresa.
+- «Bozza» nasconde il lavoro dal sito finché non viene disattivata.
+- Un dato sbagliato non blocca il sito: `build.py` salta la foto o il lavoro con un avviso, visibile nel log della Action.
+
+**Primo collegamento (una volta sola, da chi gestisce il repository):**
+1. Vai su [app.pagescms.org](https://app.pagescms.org), accedi con GitHub e installa la GitHub App di Pages CMS sul repository `multiservice_agrate`.
+2. Apri il repository nel pannello: legge `.pages.yml` e mostra «Lavori e cantieri».
+3. In **Collaborators** invita l'email dell'impresa: riceverà un link per accedere.
+4. In GitHub → Settings → Actions → General verifica che le Actions siano abilitate.
+
+### A mano (per lo sviluppatore)
+
+**Aggiungere un cantiere**: metti le foto in `foto/lavori/<nome-cantiere>/` e crea `contenuti/lavori/<nome-cantiere>.json` copiando uno esistente. Rigenera con `python3 build.py` (oppure fai solo push: ci pensa la Action).
+
+**Nuova tipologia di lavoro**: aggiungila in `contenuti/categorie-lavori.json` e nel campo `categoria` di `.pages.yml`; per farla comparire nella pagina di un servizio, aggiungila al suo `categoria_lavori` in `contenuti/servizi.json`.
 
 **Aggiungere foto a un servizio**: metti la foto in `foto/servizi/<servizio>/` e aggiungila alla `galleria` del servizio in `contenuti/servizi.json`.
 
-**Telefono, orari, recensioni, zone servite**: `contenuti/azienda.json`.
-
-> Il modo per far aggiornare il sito direttamente all'azienda (pannello per caricare cantieri e foto) è ancora da definire: la struttura a file JSON + cartelle di foto è già pronta per collegare un CMS basato su Git (es. Pages CMS o Decap/Sveltia CMS) con ricostruzione automatica su Vercel.
+**Telefono, orari, recensioni, zone servite**: `contenuti/azienda.json`. Se cambia il testo di privacy o cookie policy, aggiorna anche `policy_aggiornate_il`.
 
 ## Privacy, cookie e sicurezza
 
@@ -66,7 +89,7 @@ e apri http://127.0.0.1:5173 (in locale il modulo non invia email: compare la sc
 ## Pubblicare su Vercel
 
 1. Importa la cartella in un repository GitHub e collegalo a Vercel (nessun framework; la configurazione è in `vercel.json`, che pubblica `public/`).
-2. Esegui `python3 build.py` prima di ogni push: Vercel pubblica `public/` così com'è.
+2. Vercel pubblica `public/` così com'è. Se modifichi contenuti, foto, `src/` o `build.py`, la GitHub Action rigenera e salva `public/` da sola dopo il push (puoi comunque eseguire `python3 build.py` in locale per vedere il risultato). `ignoreCommand` in `vercel.json` evita pubblicazioni inutili per i commit che non cambiano `public/`, `vercel.json` o `api/`.
 3. In Vercel → Settings → Environment Variables imposta, per il modulo:
    - `RESEND_API_KEY` (account gratuito su resend.com, con il dominio multiservice-srls.it verificato)
    - `CONTATTI_DESTINATARIO` (es. `multi-servicesrls@hotmail.com`)
@@ -83,7 +106,7 @@ e apri http://127.0.0.1:5173 (in locale il modulo non invia email: compare la sc
 - [ ] **Privacy policy**: far rileggere al cliente o al suo consulente; confermare i fornitori (hosting Vercel, invio email Resend, casella email) e i tempi di conservazione.
 - [ ] **Foto con persone**: nelle foto di posa pavimenti (rivestimenti 08–10) e nel cantiere di Agrate compaiono operai. Verificare di avere il loro consenso alla pubblicazione o sostituire le foto.
 - [ ] **Serramenti**: le foto della galleria sono di prodotti a catalogo / showroom (indicato nella pagina). Meglio sostituirle con installazioni reali appena disponibili.
-- [ ] **Testi dei cantieri** in `contenuti/lavori.json`: descrizioni ricavate dalle foto e dal vecchio sito, da far confermare (in particolare cappotto termico ad Agrate e anni dei lavori).
+- [ ] **Testi dei cantieri** in `contenuti/lavori/`: descrizioni ricavate dalle foto e dal vecchio sito, da far confermare (in particolare cappotto termico ad Agrate e anni dei lavori).
 - [ ] **Zone servite** in `contenuti/azienda.json`.
 - [ ] **«Sopralluogo gratuito»**: il sito dice «senza impegno», come il vecchio sito. Se il sopralluogo è anche gratuito, scriverlo aumenta le richieste.
 - [ ] Consigliato: email su dominio (es. info@multiservice-srls.it) al posto dell'indirizzo hotmail.

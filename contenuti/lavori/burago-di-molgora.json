@@ -1,0 +1,47 @@
+{
+  "titolo": "Ristrutturazione totale di una villa",
+  "luogo": "Burago di Molgora (MB)",
+  "anno": 2024,
+  "categoria": "ristrutturazioni",
+  "tipologia": "Villa",
+  "interventi": [
+    "Demolizioni",
+    "Nuova apertura",
+    "Modifica della scala",
+    "Impianti",
+    "Bagno",
+    "Pavimenti"
+  ],
+  "servizi": [
+    "ristrutturazioni",
+    "impianti-elettrici-ed-idraulici",
+    "rivestimenti"
+  ],
+  "sommario": "Ristrutturazione totale di interni ed esterni: nuove aperture, modifica della scala, impianti, bagno e pavimenti.",
+  "testo": "Una ristrutturazione totale di interni ed esterni. Dopo le demolizioni è stata realizzata una nuova grande apertura verso il giardino ed è stata modificata la scala interna.\n\nIl cantiere è proseguito con le tracce per i nuovi impianti, il rifacimento del bagno e la posa dei pavimenti in grandi lastre.",
+  "foto_dopo": [],
+  "foto_durante": [
+    "/foto/lavori/burago-di-molgora/01-nuova-apertura.jpg",
+    "/foto/lavori/burago-di-molgora/02-demolizione.jpg",
+    "/foto/lavori/burago-di-molgora/03-modifica-scala.jpg",
+    "/foto/lavori/burago-di-molgora/04-tracce.jpg",
+    "/foto/lavori/burago-di-molgora/05-tracce-bagno.jpg",
+    "/foto/lavori/burago-di-molgora/06-bagno.jpg",
+    "/foto/lavori/burago-di-molgora/07-posa-pavimento.jpg"
+  ],
+  "foto_prima": [],
+  "foto_altre": [],
+  "copertina": "/foto/lavori/burago-di-molgora/01-nuova-apertura.jpg",
+  "bozza": false,
+  "inserito": "2026-11-06",
+  "descrizioni": {
+    "/foto/lavori/burago-di-molgora/01-nuova-apertura.jpg": "Nuova apertura verso il giardino",
+    "/foto/lavori/burago-di-molgora/02-demolizione.jpg": "Demolizioni interne",
+    "/foto/lavori/burago-di-molgora/03-modifica-scala.jpg": "Modifica della scala interna",
+    "/foto/lavori/burago-di-molgora/04-tracce.jpg": "Tracce per gli impianti del bagno",
+    "/foto/lavori/burago-di-molgora/05-tracce-bagno.jpg": "Nuovi scarichi e alimentazioni del bagno",
+    "/foto/lavori/burago-di-molgora/06-bagno.jpg": "Bagno in fase di rifacimento",
+    "/foto/lavori/burago-di-molgora/07-posa-pavimento.jpg": "Posa del pavimento in grandi lastre"
+  },
+  "_ordine": 4
+}

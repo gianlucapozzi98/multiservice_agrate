@@ -1,0 +1,46 @@
+{
+  "titolo": "Ristrutturazione di 12 appartamenti",
+  "luogo": "Merate (LC)",
+  "anno": 2024,
+  "categoria": "ristrutturazioni",
+  "tipologia": "Edificio residenziale",
+  "interventi": [
+    "Demolizioni",
+    "Nuovi impianti",
+    "Bagni",
+    "Pavimenti e parquet",
+    "Finiture"
+  ],
+  "servizi": [
+    "ristrutturazioni",
+    "impianti-elettrici-ed-idraulici",
+    "rivestimenti"
+  ],
+  "sommario": "Ristrutturazione interna completa di tutti i 12 appartamenti di un edificio residenziale, con gestione unica del cantiere.",
+  "testo": "In questo cantiere Multiservice si è occupata della ristrutturazione interna completa di tutti i 12 appartamenti dell'edificio.\n\nDemolizioni e sgombero, nuove tracce per impianti elettrici e idraulici, rifacimento dei bagni, pavimenti e parquet, fino alle finiture: un intervento esteso, coordinato da un'unica impresa.",
+  "foto_dopo": [
+    "/foto/lavori/merate/02-parquet.jpg",
+    "/foto/lavori/merate/03-camera.jpg"
+  ],
+  "foto_durante": [
+    "/foto/lavori/merate/04-bagno-demolizione.jpg",
+    "/foto/lavori/merate/05-tracce-impianti.jpg",
+    "/foto/lavori/merate/06-sgombero.jpg"
+  ],
+  "foto_prima": [],
+  "foto_altre": [
+    "/foto/lavori/merate/01-edificio.jpg"
+  ],
+  "copertina": "/foto/lavori/merate/01-edificio.jpg",
+  "bozza": false,
+  "inserito": "2026-11-06",
+  "descrizioni": {
+    "/foto/lavori/merate/01-edificio.jpg": "Edificio di Merate con lo striscione del cantiere Multiservice",
+    "/foto/lavori/merate/02-parquet.jpg": "Camera con nuovo parquet a spina di pesce",
+    "/foto/lavori/merate/03-camera.jpg": "Stanza con pareti rasate e nuovo serramento",
+    "/foto/lavori/merate/04-bagno-demolizione.jpg": "Bagno dopo la demolizione dei vecchi rivestimenti",
+    "/foto/lavori/merate/05-tracce-impianti.jpg": "Tracce per i nuovi impianti",
+    "/foto/lavori/merate/06-sgombero.jpg": "Scivolo per lo sgombero dei materiali di risulta"
+  },
+  "_ordine": 3
+}

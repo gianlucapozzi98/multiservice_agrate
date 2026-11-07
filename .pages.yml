@@ -1,0 +1,178 @@
+# Pannello di gestione Pages CMS (https://app.pagescms.org)
+# L'impresa aggiunge e modifica i lavori da qui; ogni salvataggio fa ripartire
+# la generazione del sito (.github/workflows/aggiorna-sito.yml).
+
+media:
+  input: foto
+  output: /foto
+  rename: safe
+  extensions: [jpg, jpeg, png, webp]
+
+settings:
+  content:
+    # conserva i dati non mostrati nel modulo (descrizioni delle foto già pubblicate, ordine)
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "Pannello: aggiunto {path}"
+      update: "Pannello: modificato {path}"
+      delete: "Pannello: eliminato {path}"
+      rename: "Pannello: rinominato {oldPath} in {newPath}"
+
+content:
+  - name: lavori
+    label: Lavori e cantieri
+    type: collection
+    path: contenuti/lavori
+    format: json
+    # il nome del file diventa l'indirizzo della pagina: /lavori/<titolo>-<comune>/
+    filename:
+      template: "{titolo}-{luogo}.json"
+      field: false
+    operations:
+      rename: false
+    view:
+      primary: titolo
+      fields: [titolo, luogo, anno, bozza]
+      search: [titolo, luogo]
+      sort: [anno, titolo]
+      default:
+        sort: anno
+        order: desc
+    fields:
+      - name: titolo
+        label: Titolo del lavoro
+        type: string
+        required: true
+        description: "Es. «Ristrutturazione completa di un appartamento». Insieme al comune forma l'indirizzo della pagina e non si può cambiare dopo il primo salvataggio."
+        options:
+          maxlength: 80
+      - name: luogo
+        label: Comune e provincia
+        type: string
+        required: true
+        description: "Es. «Monza (MB)»."
+        options:
+          maxlength: 60
+      - name: indirizzo
+        label: Via (facoltativa)
+        type: string
+        description: "Solo per condomini o edifici pubblici. Per le case private lascia vuoto: basta il comune."
+      - name: anno
+        label: Anno di fine lavori
+        type: number
+        required: true
+        description: "I lavori più recenti compaiono per primi nel sito."
+        options:
+          min: 2000
+          max: 2100
+          step: 1
+      - name: categoria
+        label: Tipologia
+        type: select
+        required: true
+        description: "Usata per i filtri nella pagina Lavori."
+        options:
+          values:
+            - { name: ristrutturazioni, label: Ristrutturazioni }
+            - { name: facciate, label: Facciate e cappotto }
+            - { name: tetti, label: Tetti }
+            - { name: imbiancature, label: Imbiancature }
+            - { name: rivestimenti, label: Rivestimenti }
+            - { name: impianti, label: Impianti }
+            - { name: serramenti, label: Serramenti }
+      - name: tipologia
+        label: Tipo di edificio (facoltativo)
+        type: string
+        description: "Es. Appartamento, Villa, Condominio."
+      - name: sommario
+        label: Descrizione breve
+        type: text
+        required: true
+        description: "Una o due frasi: compare nell'elenco dei lavori e su Google."
+        options:
+          maxlength: 220
+      - name: testo
+        label: Descrizione completa (facoltativa)
+        type: text
+        description: "Racconta il lavoro. Lascia una riga vuota per andare a capo con un nuovo paragrafo."
+      - name: interventi
+        label: Lavorazioni eseguite (facoltative)
+        type: string
+        list: true
+        description: "Una voce per riga, es. Demolizioni, Nuovo bagno, Tinteggiatura."
+      - name: servizi
+        label: Mostra il lavoro anche nelle pagine di questi servizi (facoltativo)
+        type: select
+        options:
+          multiple: true
+          values:
+            - { name: ristrutturazioni, label: Ristrutturazioni }
+            - { name: facciate-e-cappotto-termico, label: Facciate e cappotto termico }
+            - { name: impianti-elettrici-ed-idraulici, label: Impianti elettrici e idraulici }
+            - { name: imbiancature, label: Imbiancature }
+            - { name: rivestimenti, label: Rivestimenti }
+            - { name: serramenti, label: Serramenti }
+            - { name: rifacimento-tetti, label: Rifacimento tetti }
+      - name: foto_dopo
+        label: Foto a lavori finiti
+        type: image
+        description: "Puoi selezionarne più di una alla volta. Ogni foto al massimo 3 MB: se il caricamento non riesce, riducila (vedi la guida)."
+        options:
+          path: foto/lavori
+          multiple: true
+          unique: true
+      - name: foto_durante
+        label: Foto durante i lavori
+        type: image
+        description: "Ogni foto al massimo 3 MB."
+        options:
+          path: foto/lavori
+          multiple: true
+          unique: true
+      - name: foto_prima
+        label: Foto prima dei lavori
+        type: image
+        description: "Ogni foto al massimo 3 MB."
+        options:
+          path: foto/lavori
+          multiple: true
+          unique: true
+      - name: foto_altre
+        label: Altre foto, senza etichetta (facoltative)
+        type: image
+        options:
+          path: foto/lavori
+          multiple: true
+          unique: true
+      - name: copertina
+        label: Foto di copertina (facoltativa)
+        type: image
+        description: "Se la lasci vuota uso la prima foto a lavori finiti."
+        options:
+          path: foto/lavori
+      - name: confronto
+        label: Confronto prima e dopo (facoltativo)
+        type: object
+        description: "Due foto scattate dallo stesso punto, mostrate una accanto all'altra."
+        fields:
+          - name: prima
+            label: Foto prima
+            type: image
+            options:
+              path: foto/lavori
+          - name: dopo
+            label: Foto dopo
+            type: image
+            options:
+              path: foto/lavori
+      - name: bozza
+        label: Bozza, non ancora visibile sul sito
+        type: boolean
+        default: false
+        description: "Attiva per preparare il lavoro con calma: lo pubblichi disattivandola."
+      - name: inserito
+        label: Data di inserimento
+        type: date
+        hidden: true

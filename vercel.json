@@ -3,6 +3,7 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": "public",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- public/ vercel.json api/",
   "trailingSlash": true,
   "redirects": [
     {
@@ -73,6 +74,16 @@
     {
       "source": "/cantiere-viotti-monza/",
       "destination": "/lavori/monza-via-viotti/",
+      "permanent": true
+    },
+    {
+      "source": "/cantiere-cantu",
+      "destination": "/lavori/",
+      "permanent": true
+    },
+    {
+      "source": "/cantiere-cantu/",
+      "destination": "/lavori/",
       "permanent": true
     },
     {

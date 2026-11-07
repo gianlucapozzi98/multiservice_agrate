@@ -1,0 +1,37 @@
+{
+  "titolo": "Ristrutturazione totale di un appartamento",
+  "luogo": "Monza (MB)",
+  "indirizzo": "Corso Milano",
+  "anno": 2023,
+  "categoria": "ristrutturazioni",
+  "tipologia": "Appartamento",
+  "interventi": [
+    "Demolizioni",
+    "Impianti",
+    "Rivestimenti decorativi",
+    "Finiture"
+  ],
+  "servizi": [
+    "ristrutturazioni",
+    "rivestimenti"
+  ],
+  "sommario": "Ristrutturazione totale degli interni di un appartamento, con rivestimenti decorativi su misura.",
+  "testo": "Ristrutturazione totale degli interni di un appartamento a Monza, dalle demolizioni alla posa di rivestimenti decorativi su misura.",
+  "foto_dopo": [],
+  "foto_durante": [
+    "/foto/lavori/monza-corso-milano/01.jpg",
+    "/foto/lavori/monza-corso-milano/02.jpg",
+    "/foto/lavori/monza-corso-milano/03.jpg"
+  ],
+  "foto_prima": [],
+  "foto_altre": [],
+  "copertina": "/foto/lavori/monza-corso-milano/01.jpg",
+  "bozza": false,
+  "inserito": "2026-11-06",
+  "descrizioni": {
+    "/foto/lavori/monza-corso-milano/01.jpg": "Rivestimento decorativo in posa",
+    "/foto/lavori/monza-corso-milano/02.jpg": "Parete con rivestimento decorativo e preparazione delle superfici",
+    "/foto/lavori/monza-corso-milano/03.jpg": "Pareti preparate per le finiture"
+  },
+  "_ordine": 6
+}

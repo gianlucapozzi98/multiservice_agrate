@@ -115,7 +115,7 @@
         { "src": "lavori/milano/04.jpg", "alt": "Predisposizioni impiantistiche in un appartamento a Milano" },
         { "src": "lavori/merate/04-bagno-demolizione.jpg", "alt": "Bagno pronto per il rifacimento degli impianti" }
       ],
-      "categoria_lavori": ["ristrutturazioni"],
+      "categoria_lavori": ["ristrutturazioni", "impianti"],
       "faq": [
         { "d": "Installate climatizzatori e pompe di calore?", "r": "Sì. Multiservice è certificata F-Gas (certificato CI00439, Regolamento UE 2015/2067) per installazione, manutenzione e riparazione di condizionatori e pompe di calore." },
         { "d": "Fate anche solo il rifacimento dell'impianto elettrico?", "r": "Sì, interveniamo anche su singoli impianti: dopo il sopralluogo ti proponiamo la soluzione più adatta, con costi e tempi chiari." }
@@ -164,7 +164,7 @@
         { "src": "servizi/imbiancature/04.jpg", "alt": "Ambiente open space tinteggiato di bianco" },
         { "src": "servizi/imbiancature/11.jpg", "alt": "Stanza tinteggiata di bianco pronta per l'arredo" }
       ],
-      "categoria_lavori": [],
+      "categoria_lavori": ["imbiancature"],
       "faq": [
         { "d": "Mi aiutate a scegliere colori e finiture?", "r": "Sì, ti consigliamo colori, effetti e materiali in base allo stile della casa, alla luce degli ambienti e al tuo budget." },
         { "d": "Tinteggiate anche gli esterni?", "r": "Sì, realizziamo tinteggiature e finiture esterne, anche all'interno di interventi di rifacimento delle facciate." }
@@ -214,7 +214,7 @@
         { "src": "servizi/rivestimenti/10.jpg", "alt": "Stanza preparata per la posa del pavimento" },
         { "src": "lavori/burago-di-molgora/07-posa-pavimento.jpg", "alt": "Posa di un pavimento a grandi lastre in una villa" }
       ],
-      "categoria_lavori": [],
+      "categoria_lavori": ["rivestimenti"],
       "faq": [
         { "d": "Fornite anche i materiali?", "r": "Sì, forniamo piastrelle, pavimenti, sanitari, piatti doccia e rubinetteria, oppure posiamo materiali scelti da te." },
         { "d": "Posate anche lastre di grande formato?", "r": "Sì, con sistemi di livellamento che garantiscono superfici planari e fughe regolari." }
@@ -252,7 +252,7 @@
         { "src": "servizi/serramenti/10.jpg", "alt": "Scala con ringhiera in ferro battuto" },
         { "src": "servizi/serramenti/04.jpg", "alt": "Finestra con inferriata decorativa" }
       ],
-      "categoria_lavori": [],
+      "categoria_lavori": ["serramenti"],
       "faq": [
         { "d": "Cambiare i serramenti migliora l'isolamento?", "r": "Sì: serramenti con buone prestazioni termiche e acustiche riducono le dispersioni e i rumori dall'esterno. Ti aiutiamo a scegliere materiali e vetri più adatti." },
         { "d": "Vi occupate anche della rimozione dei vecchi infissi?", "r": "Sì, rimuoviamo i vecchi serramenti e ci occupiamo della posa e delle finiture." }
@@ -292,7 +292,7 @@
         { "src": "servizi/tetti/06.jpg", "alt": "Copertura in lamiera con lucernari" },
         { "src": "servizi/tetti/09.jpg", "alt": "Sollevatore telescopico in un cantiere di rifacimento tetto" }
       ],
-      "categoria_lavori": [],
+      "categoria_lavori": ["tetti"],
       "faq": [
         { "d": "Intervenite anche su capannoni e edifici industriali?", "r": "Sì, realizziamo coperture e impermeabilizzazioni per edifici commerciali e industriali, oltre che per case e condomini." },
         { "d": "Fate anche piccole riparazioni?", "r": "Sì, dalla sostituzione di poche tegole alla riparazione di infiltrazioni, fino al rifacimento completo." }

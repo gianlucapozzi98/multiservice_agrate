@@ -1,0 +1,12 @@
+{
+  "_nota": "Tipologie dei lavori (filtri nella pagina Lavori). Se aggiungi una voce qui, aggiungila anche nel campo 'categoria' di .pages.yml.",
+  "categorie": {
+    "ristrutturazioni": "Ristrutturazioni",
+    "facciate": "Facciate e cappotto",
+    "tetti": "Tetti",
+    "imbiancature": "Imbiancature",
+    "rivestimenti": "Rivestimenti",
+    "impianti": "Impianti",
+    "serramenti": "Serramenti"
+  }
+}

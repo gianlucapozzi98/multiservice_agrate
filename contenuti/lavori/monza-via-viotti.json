@@ -1,0 +1,53 @@
+{
+  "titolo": "Facciate con cappotto termico",
+  "luogo": "Monza (MB)",
+  "indirizzo": "Via Viotti",
+  "anno": 2025,
+  "categoria": "facciate",
+  "tipologia": "Condominio",
+  "interventi": [
+    "Isolamento a cappotto",
+    "Rasature e finiture",
+    "Decoro geometrico",
+    "Tinteggiatura bicolore"
+  ],
+  "servizi": [
+    "facciate-e-cappotto-termico",
+    "imbiancature"
+  ],
+  "sommario": "Riqualificazione completa delle facciate di un condominio: cappotto termico, nuove finiture bicolore e decoro geometrico sul fronte cieco.",
+  "testo": "Le facciate dell'edificio si presentavano grigie, con intonaco segnato dal tempo e senza isolamento. Il progetto ha previsto la posa del cappotto termico su tutti i fronti, la rasatura armata e le nuove finiture.\n\nIl fronte cieco è stato valorizzato con una cornice geometrica a rilievo, mentre la combinazione di toni chiari e grigi scandisce piani e balconi, restituendo all'edificio un aspetto contemporaneo.",
+  "foto_dopo": [
+    "/foto/lavori/monza-via-viotti/dopo-01.jpg",
+    "/foto/lavori/monza-via-viotti/dopo-02.jpg",
+    "/foto/lavori/monza-via-viotti/dopo-03.jpg",
+    "/foto/lavori/monza-via-viotti/dopo-04.jpg"
+  ],
+  "foto_durante": [
+    "/foto/lavori/monza-via-viotti/durante-01.jpg"
+  ],
+  "foto_prima": [
+    "/foto/lavori/monza-via-viotti/prima-01.jpg",
+    "/foto/lavori/monza-via-viotti/prima-02.jpg",
+    "/foto/lavori/monza-via-viotti/prima-03.jpg"
+  ],
+  "foto_altre": [],
+  "copertina": "/foto/lavori/monza-via-viotti/dopo-01.jpg",
+  "confronto": {
+    "prima": "/foto/lavori/monza-via-viotti/prima-03.jpg",
+    "dopo": "/foto/lavori/monza-via-viotti/dopo-03.jpg"
+  },
+  "bozza": false,
+  "inserito": "2026-11-06",
+  "descrizioni": {
+    "/foto/lavori/monza-via-viotti/dopo-01.jpg": "Condominio in via Viotti a Monza con facciate rinnovate",
+    "/foto/lavori/monza-via-viotti/dopo-02.jpg": "Fronte cieco con cornice geometrica a rilievo",
+    "/foto/lavori/monza-via-viotti/dopo-03.jpg": "Vista d'angolo della facciata dopo l'intervento",
+    "/foto/lavori/monza-via-viotti/dopo-04.jpg": "Facciata con balconi e finitura bicolore",
+    "/foto/lavori/monza-via-viotti/durante-01.jpg": "Pannelli isolanti del cappotto termico in posa",
+    "/foto/lavori/monza-via-viotti/prima-01.jpg": "Facciata dell'edificio prima dei lavori",
+    "/foto/lavori/monza-via-viotti/prima-02.jpg": "Fronte cieco prima dell'intervento",
+    "/foto/lavori/monza-via-viotti/prima-03.jpg": "Vista d'angolo dell'edificio prima dei lavori"
+  },
+  "_ordine": 1
+}
