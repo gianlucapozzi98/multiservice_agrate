@@ -8,5 +8,8 @@
   "sommario": "AA",
   "testo": "AAA",
   "bozza": false,
-  "inserito": "2026-11-10"
+  "inserito": "2026-11-10",
+  "confronto": {
+    "prima": "/foto/lavori/img4792.jpg"
+  }
 }
