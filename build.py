@@ -585,6 +585,18 @@ def hero_foto(*voci):
         dati = f'data-titolo="{esc(l["titolo"])}" data-luogo="{esc(l["luogo"])}" data-href="/lavori/{l["slug"]}/"'
         if i == 0:
             foto_html = img(src, alt, "100vw", "", True)
+            # tavola di progetto per l'animazione d'apertura (strumenti/genera-progetto.py):
+            # la carica main.js solo se l'animazione parte; senza tavola si vede subito la foto
+            tav = "/assets/img/progetto/" + src.rsplit(".", 1)[0]
+            if all((SRC / f"{tav}-{w}.webp".lstrip("/")).exists() for w in (960, 1600)):
+                info = immagine(src)
+                foto_html += (
+                    f'<div class="hero__progetto" aria-hidden="true"><img class="hero__progetto-img" '
+                    f'data-src="{asset(tav + "-960.webp")}" '
+                    f'data-srcset="{asset(tav + "-960.webp")} 960w, {asset(tav + "-1600.webp")} 1600w" sizes="100vw" '
+                    f'width="960" height="{round(info["h"] * 960 / info["w"])}" alt="" decoding="async"></div>'
+                    '<span class="hero__laser" aria-hidden="true"></span>'
+                )
         else:
             info = immagine(src)
             dw = min(info["widths"], key=lambda x: abs(x - 960))

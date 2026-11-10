@@ -91,7 +91,55 @@
     var ready = function () { hero.classList.add("is-ready"); };
     if (heroImg && !heroImg.complete) { heroImg.addEventListener("load", ready); setTimeout(ready, 900); }
     else { requestAnimationFrame(function () { requestAnimationFrame(ready); }); }
+    heroProgetto(hero);
     heroSlides(hero);
+  }
+
+  /* ---------- Hero: dal progetto alla consegna ----------
+     All'apertura la prima foto compare come tavola di progetto: il disegno si traccia dal basso,
+     poi una linea laser lo scorre e rivela il lavoro finito (le fasi sono in style.css).
+     La tavola si scarica solo qui; se non arriva in tempo si vede subito la foto. */
+  function heroProgetto(hero) {
+    var tav = $(".hero__progetto-img", hero);
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (!tav || reduceMotion || saveData) return;
+    var foto = $(".hero__slide img", hero);
+    var stato = 0; // 0 in attesa delle immagini, 1 animazione in corso, 2 finita
+    var pronta = function (im) { return im.complete && im.naturalWidth > 0; };
+    function parti() {
+      if (stato !== 0 || !pronta(foto) || !pronta(tav)) return;
+      stato = 1;
+      hero.classList.add("is-progetto");
+      setTimeout(function () {
+        stato = 2;
+        hero.classList.add("is-progetto-fatto");
+        hero.classList.remove("is-intro");
+      }, 3300);
+    }
+    function salta() {
+      if (stato !== 0) return;
+      stato = 2;
+      // la tavola ancora in arrivo non serve più: si interrompe, così non ritarda il resto della pagina
+      if (!pronta(tav)) { tav.removeAttribute("srcset"); tav.removeAttribute("src"); }
+      hero.classList.add("is-progetto-via");
+      hero.classList.remove("is-intro");
+      setTimeout(function () { hero.classList.add("is-progetto-fatto"); }, 500);
+    }
+    hero.classList.add("is-progetto-attesa", "is-intro");
+    tav.setAttribute("srcset", tav.getAttribute("data-srcset"));
+    tav.setAttribute("src", tav.getAttribute("data-src"));
+    // rete lenta: la carta blu non tiene nascosta la foto. Arrivata la foto, la tavola ha un secondo
+    // per arrivare anche lei; in tutto si aspetta al massimo due secondi e mezzo, poi la foto e basta
+    foto.addEventListener("load", function () { parti(); setTimeout(salta, 1000); });
+    tav.addEventListener("load", parti);
+    tav.addEventListener("error", salta);
+    if (pronta(foto)) setTimeout(salta, 1000);
+    parti();
+    setTimeout(salta, 2500);
+    // chi tocca una barretta vuole scorrere le foto: la sua parte subito
+    $$(".hero__dot", hero).forEach(function (d) {
+      d.addEventListener("click", function () { salta(); hero.classList.remove("is-intro"); });
+    });
   }
 
   /* ---------- Hero: foto dei lavori in dissolvenza ----------
@@ -430,4 +478,122 @@
 
   /* ---------- Anno corrente ---------- */
   $$("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
+
+  /* ---------- Striscia dei servizi: il muro si costruisce ----------
+     Scorrendo, i mattoni si posano uno alla volta: prima la fila in basso, da sinistra a destra, poi
+     quelle sopra. Un canvas copre la striscia con il colore della malta; ogni mattone scende, si assesta
+     e al suo posto si scopre quello vero della striscia. La posizione dei mattoni è quella della tessera
+     --mattoni di style.css (96x26 ingrandita a 144x39, centrata): a muro finito il canvas si toglie e
+     la striscia resta identica. Se la striscia è tutta in vista e non si scorre, il muro si finisce da solo. */
+  (function () {
+    var band = $(".marquee");
+    if (!band || reduceMotion) return;
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext && canvas.getContext("2d");
+    if (!ctx) return;
+    canvas.className = "marquee__muro";
+    canvas.setAttribute("aria-hidden", "true");
+    band.insertBefore(canvas, band.firstChild);
+    band.classList.add("is-muro");
+
+    var TESSERA = 144, ALTEZZA = 39, FILA = 19.5, PASSO = 48; // mattone 45x16,5 + giunto
+    var MALTA = "#d9cec1", ACCENTO = [173, 71, 43];             // --accent
+    // velatura di ogni mattone nella tessera: [bianco/nero, opacità], file pari e dispari
+    var TONI = [[[0, .05], [255, .07], [0, .09]], [[0, .02], [0, .07], [255, .04]]];
+    var mattoni = [], W = 0, H = 0, dpr = 1, p = 0, disegnato = -1, attesa = 0, daSolo = false, finito = false, inCoda = false;
+
+    function colore(t) { // come appare il mattone: accento + velatura della tessera, al 70%
+      return "rgb(" + ACCENTO.map(function (c) { return Math.round(c + (t[0] - c) * t[1] * 0.7); }).join(",") + ")";
+    }
+    function seme(i) { var x = Math.sin(i * 12.9898) * 43758.5453; return x - Math.floor(x); }
+    function prepara() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = band.clientWidth; H = band.clientHeight;
+      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+      var ox = (W - TESSERA) / 2, oy = (H - ALTEZZA) / 2; // background-position: center
+      var r0 = Math.floor(-oy / FILA), r1 = Math.ceil((H - oy) / FILA) - 1, n = 0;
+      mattoni = [];
+      for (var r = r0; r <= r1; r++) {
+        var dispari = ((r % 2) + 2) % 2, off = dispari ? PASSO / 2 : 0, y = oy + r * FILA;
+        var m0 = Math.floor((-ox - off) / PASSO), m1 = Math.ceil((W - ox - off) / PASSO) - 1;
+        for (var m = m0; m <= m1; m++) {
+          var x = ox + off + m * PASSO;
+          mattoni.push({
+            x: x, y: y, colore: colore(TONI[dispari][((m % 3) + 3) % 3]),
+            // ordine di posa: fila per fila dal basso, da sinistra a destra, con un po' di irregolarità
+            inizio: Math.min(0.82, ((r1 - r) + (x / W) * 0.9 + seme(n++) * 0.15) / (r1 - r0 + 1.2) * 0.82)
+          });
+        }
+      }
+      disegnato = -1;
+      disegna();
+    }
+    function px(v) { return Math.round(v * dpr); }
+    function rientro(t) { var c1 = 1.5, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); }
+    function disegna() {
+      if (finito || (p < 1 && Math.abs(p - disegnato) < 0.002)) return;
+      disegnato = p;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.fillStyle = MALTA;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      var inVolo = [];
+      mattoni.forEach(function (m) {
+        var q = (p - m.inizio) / 0.16;
+        // posato: si scopre la striscia vera (bordi arrotondati al pixel, niente fessure tra mattoni vicini)
+        if (q >= 1) ctx.clearRect(px(m.x), px(m.y), px(m.x + PASSO) - px(m.x), px(m.y + FILA) - px(m.y));
+        else if (q > 0) inVolo.push([m, q]);
+      });
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      inVolo.forEach(function (v) {
+        var m = v[0], q = v[1], y = m.y + 1.5 + (1 - rientro(q)) * -34;
+        ctx.globalAlpha = Math.min(1, q * 2.5);
+        ctx.fillStyle = m.colore;
+        ctx.fillRect(m.x + 1.5, y, 45, 16.5);
+        ctx.fillStyle = "rgba(255,255,255,.07)";
+        ctx.fillRect(m.x + 1.5, y + 0.2, 45, 1.5);
+      });
+      ctx.globalAlpha = 1;
+      band.style.setProperty("--muro", p.toFixed(3));
+      if (p >= 1) chiudi();
+    }
+    function chiudi() { // muro finito: resta solo la striscia
+      finito = true;
+      clearTimeout(attesa);
+      window.removeEventListener("scroll", alloScroll);
+      if (osservatore) osservatore.disconnect();
+      canvas.remove();
+      band.classList.remove("is-muro");
+      band.style.removeProperty("--muro");
+    }
+    function porta(nuovo) { if (nuovo > p) { p = Math.min(1, nuovo); disegna(); } } // il muro, una volta su, resta su
+    function avanzamento() {
+      if (finito) return;
+      var r = band.getBoundingClientRect(), vh = window.innerHeight;
+      porta((vh - r.top) / (vh * 0.5));
+      clearTimeout(attesa);
+      if (!finito && !daSolo && r.top >= 0 && r.bottom <= vh && r.top < vh * 0.75) attesa = setTimeout(finisci, 400);
+    }
+    function finisci() {
+      daSolo = true;
+      var t0 = performance.now(), p0 = p;
+      (function passo() {
+        if (finito) return;
+        porta(p0 + (performance.now() - t0) / 1600);
+        requestAnimationFrame(passo);
+      })();
+    }
+    function alloScroll() {
+      if (inCoda) return;
+      inCoda = true;
+      requestAnimationFrame(function () { inCoda = false; avanzamento(); });
+    }
+    window.addEventListener("scroll", alloScroll, { passive: true });
+    var osservatore = "ResizeObserver" in window
+      ? new ResizeObserver(function () { if (!finito && (band.clientWidth !== W || band.clientHeight !== H)) { prepara(); avanzamento(); } })
+      : null;
+    if (osservatore) osservatore.observe(band);
+    else window.addEventListener("resize", function () { if (!finito) { prepara(); avanzamento(); } });
+    prepara();
+    avanzamento();
+  })();
 })();

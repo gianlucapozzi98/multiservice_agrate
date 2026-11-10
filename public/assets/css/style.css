@@ -516,6 +516,11 @@ strong { font-weight: 650; }
 }
 .marquee__item::after { content: ""; width: 8px; height: 8px; background: rgba(255,255,255,.7); transform: rotate(45deg); }
 @keyframes marquee { to { transform: translateX(-50%); } }
+/* Il muro si costruisce: scorrendo, main.js posa i mattoni della striscia uno alla volta su un canvas
+   (fondo color malta, mattoni che scendono e si assestano). A muro finito il canvas viene tolto
+   e resta la striscia qui sopra, identica. La scritta compare con gli ultimi mattoni. */
+.marquee__muro { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.marquee.is-muro .marquee__track { opacity: clamp(0, calc((var(--muro, 0) - .82) * 6), 1); }
 /* Nessuna pausa al passaggio del mouse: il nastro scorre sempre, uguale su desktop e mobile. */
 
 /* ---------- Intro / chi siamo (home) ---------- */
@@ -1118,6 +1123,27 @@ strong { font-weight: 650; }
 .js .hero__media img { transform: scale(1.08); }
 .js .hero.is-ready .hero__slide.is-active img,
 .js .hero.is-ready .hero__slide.is-leaving img { transform: scale(1); transition: transform 8s var(--ease-out); }
+
+/* Apertura della home: la prima foto compare come tavola di progetto (contorni bianchi su carta blu).
+   Il disegno si traccia dal basso, poi una linea laser lo scorre e rivela il lavoro finito.
+   Le classi le mette main.js; senza JS, con "Riduci movimento" o "Risparmio dati" si vede subito la foto. */
+.hero__progetto { position: absolute; inset: 0; visibility: hidden; }
+.hero__progetto::after { content: ""; position: absolute; inset: 0; background: #142f54; } /* carta ancora vuota */
+.hero.is-progetto-attesa .hero__progetto { visibility: visible; }
+.hero.is-progetto .hero__progetto { animation: progetto-svela 1.5s cubic-bezier(.65, 0, .35, 1) 1.75s both; }
+.hero.is-progetto .hero__progetto::after { animation: progetto-traccia 1.3s cubic-bezier(.3, 0, .2, 1) .2s both; }
+.hero.is-progetto-via .hero__progetto { opacity: 0; transition: opacity .5s var(--ease-out); }
+.hero.is-progetto-fatto .hero__progetto, .hero.is-progetto-fatto .hero__laser { display: none; }
+@keyframes progetto-traccia { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 100% 0); } }
+@keyframes progetto-svela { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 0 100%); } }
+.hero__laser {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 2px; opacity: 0; pointer-events: none;
+  background: #ffe1cf; box-shadow: 0 0 10px 2px rgba(227, 130, 95, .95), 0 0 46px 10px rgba(227, 130, 95, .4);
+}
+.hero.is-progetto .hero__laser { animation: progetto-laser 1.5s cubic-bezier(.65, 0, .35, 1) 1.75s both; }
+@keyframes progetto-laser { 0% { left: 0; opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+/* la barretta della prima foto parte quando la foto vera è scoperta */
+.hero.is-intro .hero__dot.is-active span::after { animation-play-state: paused; }
 
 .img-reveal { position: relative; overflow: hidden; }
 .js .img-reveal::after {

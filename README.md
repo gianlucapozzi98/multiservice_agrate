@@ -19,9 +19,11 @@ src/
   assets/css/style.css  design system: palette e font in cima al file
   assets/js/main.js     menu, animazioni, galleria a schermo intero, filtri, modulo, mappa
   assets/img/icons.svg  icone e logo vettoriale
+  assets/img/progetto/  tavole di progetto per l'animazione d'apertura della home
   assets/fonts/         Archivo e Instrument Serif (SIL Open Font License), ospitati sul sito
   immagini.json         registro delle foto già convertite (non modificare a mano)
   pagine-date.json      data dell'ultima modifica reale di ogni pagina, per la sitemap (automatico)
+strumenti/genera-progetto.py  ricava la tavola dalla prima foto della hero (va rifatta se la foto cambia)
 api/contatti.js         funzione Vercel che riceve il modulo e invia l'email
 vercel.json             header di sicurezza, cache, redirect dai vecchi indirizzi WordPress
 .pages.yml              configurazione del pannello Pages CMS (moduli per i lavori)
