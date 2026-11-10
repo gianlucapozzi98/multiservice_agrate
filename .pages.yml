@@ -155,7 +155,7 @@ content:
       - name: confronto
         label: Confronto prima e dopo (facoltativo)
         type: object
-        description: "Due foto scattate dallo stesso punto, mostrate una accanto all'altra."
+        description: "Due foto scattate dallo stesso punto, mostrate una accanto all'altra. Compaiono anche nella galleria del lavoro."
         fields:
           - name: prima
             label: Foto prima

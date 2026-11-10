@@ -127,10 +127,16 @@ def carica_lavori():
         def descrizione(valore, rel):
             return descrizioni.get(valore) or descrizioni.get("/foto/" + rel) or ""
 
+        # le foto del confronto prima/dopo entrano anche in galleria (se non ci sono già):
+        # così un lavoro con le foto solo nel confronto viene pubblicato lo stesso
+        c = d.get("confronto") if isinstance(d.get("confronto"), dict) else {}
         foto, viste = [], set()
         for campo, fase in GALLERIA_FASI:
             valori = d.get(campo) or []
-            for v in valori if isinstance(valori, list) else [valori]:
+            valori = list(valori) if isinstance(valori, list) else [valori]
+            if fase in ("dopo", "prima") and c.get(fase):
+                valori.append(c[fase])
+            for v in valori:
                 rel = percorso_foto(v, slug)
                 if rel is None:
                     avviso(f"{nome}: foto non trovata ({v}), non mostrata")
@@ -155,7 +161,6 @@ def carica_lavori():
             continue
 
         confronto = None
-        c = d.get("confronto") if isinstance(d.get("confronto"), dict) else {}
         if c.get("prima") or c.get("dopo"):
             prima, dopo = percorso_foto(c.get("prima"), slug), percorso_foto(c.get("dopo"), slug)
             if prima and dopo:

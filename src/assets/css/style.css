@@ -386,7 +386,7 @@ strong { font-weight: 650; }
 .hero__dot span { position: relative; display: block; height: 3px; border-radius: 3px; background: rgba(255,255,255,.3); overflow: hidden; }
 .hero__dot span::after { content: ""; position: absolute; inset: 0; background: #fff; transform-origin: left; transform: scaleX(0); }
 .hero__dot.is-done span::after { transform: scaleX(1); }
-.hero__dot.is-active span::after { animation: hero-progress var(--slide-time, 5.5s) linear forwards; }
+.hero__dot.is-active span::after { animation: hero-progress var(--slide-time, 4.7s) linear forwards; }
 .hero.is-paused .hero__dot.is-active span::after { animation-play-state: paused; }
 .hero.is-manual .hero__dot.is-active span::after { animation: none; transform: scaleX(1); }
 @keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }

@@ -58,7 +58,7 @@ e apri http://127.0.0.1:5173 (in locale il modulo non invia email: compare la sc
 L'impresa aggiunge e modifica i lavori da **[app.pagescms.org](https://app.pagescms.org)**, accedendo con la propria email: nessun account GitHub. Ogni salvataggio crea un commit; la GitHub Action `aggiorna-sito.yml` rigenera `public/` (con Pillow, convertendo solo le foto nuove) e salva il risultato; Vercel pubblica. In tutto un paio di minuti.
 
 - Ordine nel sito: anno di fine lavori (dal più recente), poi data di inserimento. I primi 4 compaiono in home.
-- Le foto si caricano nei campi «a lavori finiti», «durante», «prima» e «altre»: in galleria compaiono in quest'ordine, con l'etichetta della fase. La descrizione per i lettori di schermo e Google è generata da titolo, comune e fase (le descrizioni scritte a mano dei cantieri iniziali sono nel campo nascosto `descrizioni`).
+- Le foto si caricano nei campi «a lavori finiti», «durante», «prima» e «altre»: in galleria compaiono in quest'ordine, con l'etichetta della fase. Anche le foto del «confronto prima e dopo» entrano in galleria: un lavoro con foto solo lì viene pubblicato lo stesso. La descrizione per i lettori di schermo e Google è generata da titolo, comune e fase (le descrizioni scritte a mano dei cantieri iniziali sono nel campo nascosto `descrizioni`).
 - **Limite**: Pages CMS non accetta file sopra ~3 MB (limite di Vercel sulle richieste, 4,5 MB, con l'invio in base64). Le foto più pesanti vanno ridotte prima: vedi la guida per l'impresa.
 - «Bozza» nasconde il lavoro dal sito finché non viene disattivata.
 - Un dato sbagliato non blocca il sito: `build.py` salta la foto o il lavoro con un avviso, visibile nel log della Action.
