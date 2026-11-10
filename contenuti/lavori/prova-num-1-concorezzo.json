@@ -1,0 +1,14 @@
+{
+  "titolo": "Prova num 1",
+  "luogo": "Concorezzo",
+  "indirizzo": "Via volta",
+  "anno": 2000,
+  "categoria": "impianti",
+  "sommario": "Prova 1",
+  "testo": "prova 1",
+  "interventi": [
+    "efewff"
+  ],
+  "bozza": false,
+  "inserito": "2026-11-10"
+}
