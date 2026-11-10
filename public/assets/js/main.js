@@ -91,6 +91,98 @@
     var ready = function () { hero.classList.add("is-ready"); };
     if (heroImg && !heroImg.complete) { heroImg.addEventListener("load", ready); setTimeout(ready, 900); }
     else { requestAnimationFrame(function () { requestAnimationFrame(ready); }); }
+    heroSlides(hero);
+  }
+
+  /* ---------- Hero: foto dei lavori in dissolvenza ----------
+     La barretta attiva si riempie con un'animazione CSS: quando finisce si passa alla foto dopo.
+     Pausa automatica se la hero non si vede o la scheda è in secondo piano, e con il pulsante.
+     Con "Riduci movimento" o "Risparmio dati" niente scorrimento: le foto si cambiano a mano. */
+  function heroSlides(hero) {
+    var slides = $$(".hero__slide", hero);
+    var dots = $$(".hero__dot", hero);
+    var caption = $(".hero__caption", hero);
+    var pauseBtn = $(".hero__pause", hero);
+    if (slides.length < 2 || !caption) return;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    var manual = reduceMotion || saveData;
+    var cur = 0, busy = false, userPaused = false, hiddenPage = false, offscreen = false;
+    if (manual) hero.classList.add("is-manual");
+
+    function load(i) {
+      var im = $("img", slides[i]);
+      if (im && im.getAttribute("data-srcset") && !im.getAttribute("srcset")) {
+        im.setAttribute("srcset", im.getAttribute("data-srcset"));
+        im.setAttribute("src", im.getAttribute("data-src"));
+      }
+      return im;
+    }
+    function paintDots() {
+      dots.forEach(function (d, k) {
+        d.classList.remove("is-active");
+        d.classList.toggle("is-done", k < cur);
+        d.setAttribute("aria-current", k === cur ? "true" : "false");
+      });
+      void hero.offsetWidth; // riparte l'animazione della barretta
+      if (dots[cur]) dots[cur].classList.add("is-active");
+    }
+    function setCaption() {
+      var s = slides[cur];
+      caption.classList.add("is-changing");
+      setTimeout(function () {
+        caption.setAttribute("href", s.getAttribute("data-href"));
+        $("[data-titolo]", caption).textContent = s.getAttribute("data-titolo");
+        $("[data-luogo]", caption).textContent = s.getAttribute("data-luogo");
+        caption.classList.remove("is-changing");
+      }, 400);
+    }
+    function show(i) {
+      if (i === cur || busy) return;
+      busy = true;
+      var prev = slides[cur], next = slides[i], im = load(i), done = false;
+      var go = function () {
+        if (done) return;
+        done = true;
+        prev.classList.remove("is-active");
+        prev.classList.add("is-leaving");
+        prev.setAttribute("aria-hidden", "true");
+        next.removeAttribute("aria-hidden");
+        next.classList.add("is-active");
+        setTimeout(function () { prev.classList.remove("is-leaving"); }, 1800);
+        cur = i;
+        busy = false;
+        paintDots();
+        setCaption();
+        load((i + 1) % slides.length); // prepara la foto successiva
+      };
+      if (im && !(im.complete && im.naturalWidth)) {
+        im.addEventListener("load", go, { once: true });
+        im.addEventListener("error", go, { once: true });
+        setTimeout(go, 5000);
+      } else { go(); }
+    }
+    function setPaused() {
+      hero.classList.toggle("is-paused", userPaused || hiddenPage || offscreen);
+    }
+
+    dots.forEach(function (d, k) { d.addEventListener("click", function () { show(k); }); });
+    hero.addEventListener("animationend", function (e) {
+      if (e.animationName === "hero-progress" && !manual) show((cur + 1) % slides.length);
+    });
+    if (pauseBtn) pauseBtn.addEventListener("click", function () {
+      userPaused = !userPaused;
+      pauseBtn.setAttribute("aria-pressed", String(userPaused));
+      pauseBtn.setAttribute("aria-label", userPaused ? "Riprendi lo scorrimento delle foto" : "Ferma lo scorrimento delle foto");
+      setPaused();
+    });
+    document.addEventListener("visibilitychange", function () { hiddenPage = document.hidden; setPaused(); });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { offscreen = !en[0].isIntersecting; setPaused(); }).observe(hero);
+    }
+    // la seconda foto si scarica solo dopo che la pagina ha finito di caricarsi
+    var preload = function () { load(1); };
+    if (document.readyState === "complete") preload(); else window.addEventListener("load", preload);
+    paintDots();
   }
 
   /* ---------- Comparsa allo scroll + contatori ---------- */

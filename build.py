@@ -563,7 +563,58 @@ def gallerie_servizi():
     return "".join(out)
 
 
+def hero_foto(*voci):
+    """Foto della hero in home che si alternano in dissolvenza.
+    Ogni voce: "slug-del-lavoro" (usa la sua copertina) oppure "slug-del-lavoro foto/da/usare.jpg".
+    Solo la prima foto si carica subito; le altre le carica main.js una alla volta."""
+    slides = []
+    for voce in voci:
+        slug, _, foto = voce.partition(" ")
+        l = LAV_BY_SLUG.get(slug.strip())
+        if not l:
+            avviso(f"hero: lavoro '{slug}' non pubblicato, foto saltata")
+            continue
+        src = percorso_foto(foto.strip(), l["slug"]) if foto.strip() else l["copertina"]["src"]
+        if not src:
+            avviso(f"hero: foto '{foto}' non trovata, saltata")
+            continue
+        alt = next((f["alt"] for f in l["foto"] if f["src"] == src), l["copertina"]["alt"])
+        slides.append((src, alt, l))
+    out = ['<div class="hero__media" data-slides>']
+    for i, (src, alt, l) in enumerate(slides):
+        dati = f'data-titolo="{esc(l["titolo"])}" data-luogo="{esc(l["luogo"])}" data-href="/lavori/{l["slug"]}/"'
+        if i == 0:
+            foto_html = img(src, alt, "100vw", "", True)
+        else:
+            info = immagine(src)
+            dw = min(info["widths"], key=lambda x: abs(x - 960))
+            foto_html = (
+                f'<img data-src="{src_w(info, dw)}" data-srcset="{srcset_of(info)}" sizes="100vw" '
+                f'width="{dw}" height="{round(info["h"] * dw / info["w"])}" alt="{esc(alt)}" decoding="async">'
+            )
+        stato = ' class="hero__slide is-active"' if i == 0 else ' class="hero__slide" aria-hidden="true"'
+        out.append(f"<div{stato} {dati}>{foto_html}</div>")
+    out.append("</div>")
+    if len(slides) > 1:
+        primo = slides[0][2]
+        barre = "".join(
+            f'<button class="hero__dot{" is-active" if i == 0 else ""}" type="button" aria-label="Foto {i + 1} di {len(slides)}: {esc(l["titolo"])}, {esc(l["luogo"])}"><span></span></button>'
+            for i, (_, _, l) in enumerate(slides)
+        )
+        out.append(
+            '<div class="hero__slider container">'
+            f'<a class="hero__caption" href="/lavori/{primo["slug"]}/"><small>In foto</small>'
+            f'<span class="hero__caption-text"><span data-titolo>{esc(primo["titolo"])}</span>'
+            f'<span data-luogo>{esc(primo["luogo"])}</span></span></a>'
+            f'<div class="hero__controls"><div class="hero__dots" role="group" aria-label="Foto dei lavori">{barre}</div>'
+            '<button class="hero__pause" type="button" aria-pressed="false" aria-label="Ferma lo scorrimento delle foto"><span></span></button></div>'
+            "</div>"
+        )
+    return "".join(out)
+
+
 COMPONENTI = {
+    "hero_foto": hero_foto,
     "servizi_griglia": servizi_griglia,
     "servizi_links": servizi_links,
     "lavori_home": lavori_home,
