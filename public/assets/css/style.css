@@ -386,15 +386,11 @@ strong { font-weight: 650; }
 .hero__dot span { position: relative; display: block; height: 3px; border-radius: 3px; background: rgba(255,255,255,.3); overflow: hidden; }
 .hero__dot span::after { content: ""; position: absolute; inset: 0; background: #fff; transform-origin: left; transform: scaleX(0); }
 .hero__dot.is-done span::after { transform: scaleX(1); }
-.hero__dot.is-active span::after { animation: hero-progress var(--slide-time, 6.5s) linear forwards; }
+.hero__dot.is-active span::after { animation: hero-progress var(--slide-time, 5.5s) linear forwards; }
 .hero.is-paused .hero__dot.is-active span::after { animation-play-state: paused; }
 .hero.is-manual .hero__dot.is-active span::after { animation: none; transform: scaleX(1); }
 @keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-.hero__pause { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(18,20,22,.35); cursor: pointer; }
-.hero__pause span { width: 8px; height: 10px; border-left: 2.5px solid #fff; border-right: 2.5px solid #fff; }
-.hero__pause[aria-pressed="true"] span { width: 0; height: 0; border-style: solid; border-color: transparent transparent transparent #fff; border-width: 6px 0 6px 10px; margin-left: 3px; }
-.hero.is-manual .hero__pause { display: none; }
-.hero__dot:focus-visible, .hero__pause:focus-visible, .hero__caption:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 4px; }
+.hero__dot:focus-visible, .hero__caption:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 4px; }
 @media (max-width: 560px) {
   /* sul telefono basta il comune: la riga resta una sola e non tocca il titolo */
   .hero__caption small, .hero__caption-text [data-titolo] { display: none; }

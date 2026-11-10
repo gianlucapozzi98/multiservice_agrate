@@ -42,8 +42,10 @@ jobs:
         env:
           RAMO: ${{ github.ref_name }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Il commit è a nome del titolare: sul piano Hobby Vercel pubblica solo i commit del
+          # proprietario del progetto (quelli del bot o dei collaboratori risultano "Blocked")
+          git config user.name "Gian Luca Pozzi"
+          git config user.email "254709783+gianlucapozzi98@users.noreply.github.com"
           for tentativo in 1 2 3; do
             python build.py
             git add -A public src/immagini.json src/pagine-date.json

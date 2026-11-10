@@ -618,8 +618,7 @@ def hero_foto(*voci):
             f'<a class="hero__caption" href="/lavori/{primo["slug"]}/"><small>In foto</small>'
             f'<span class="hero__caption-text"><span data-titolo>{esc(primo["titolo"])}</span>'
             f'<span data-luogo>{esc(primo["luogo"])}</span></span></a>'
-            f'<div class="hero__controls"><div class="hero__dots" role="group" aria-label="Foto dei lavori">{barre}</div>'
-            '<button class="hero__pause" type="button" aria-pressed="false" aria-label="Ferma lo scorrimento delle foto"><span></span></button></div>'
+            f'<div class="hero__controls"><div class="hero__dots" role="group" aria-label="Foto dei lavori">{barre}</div></div>'
             "</div>"
         )
     return "".join(out)

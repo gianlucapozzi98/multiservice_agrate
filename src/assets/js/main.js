@@ -144,17 +144,16 @@
 
   /* ---------- Hero: foto dei lavori in dissolvenza ----------
      La barretta attiva si riempie con un'animazione CSS: quando finisce si passa alla foto dopo.
-     Pausa automatica se la hero non si vede o la scheda è in secondo piano, e con il pulsante.
+     Pausa automatica se la hero non si vede o la scheda è in secondo piano.
      Con "Riduci movimento" o "Risparmio dati" niente scorrimento: le foto si cambiano a mano. */
   function heroSlides(hero) {
     var slides = $$(".hero__slide", hero);
     var dots = $$(".hero__dot", hero);
     var caption = $(".hero__caption", hero);
-    var pauseBtn = $(".hero__pause", hero);
     if (slides.length < 2 || !caption) return;
     var saveData = navigator.connection && navigator.connection.saveData;
     var manual = reduceMotion || saveData;
-    var cur = 0, busy = false, userPaused = false, hiddenPage = false, offscreen = false;
+    var cur = 0, busy = false, hiddenPage = false, offscreen = false;
     if (manual) hero.classList.add("is-manual");
 
     function load(i) {
@@ -210,18 +209,12 @@
       } else { go(); }
     }
     function setPaused() {
-      hero.classList.toggle("is-paused", userPaused || hiddenPage || offscreen);
+      hero.classList.toggle("is-paused", hiddenPage || offscreen);
     }
 
     dots.forEach(function (d, k) { d.addEventListener("click", function () { show(k); }); });
     hero.addEventListener("animationend", function (e) {
       if (e.animationName === "hero-progress" && !manual) show((cur + 1) % slides.length);
-    });
-    if (pauseBtn) pauseBtn.addEventListener("click", function () {
-      userPaused = !userPaused;
-      pauseBtn.setAttribute("aria-pressed", String(userPaused));
-      pauseBtn.setAttribute("aria-label", userPaused ? "Riprendi lo scorrimento delle foto" : "Ferma lo scorrimento delle foto");
-      setPaused();
     });
     document.addEventListener("visibilitychange", function () { hiddenPage = document.hidden; setPaused(); });
     if ("IntersectionObserver" in window) {
