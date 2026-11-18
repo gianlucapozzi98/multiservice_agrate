@@ -1,0 +1,37 @@
+<!--meta
+{
+  "percorso": "/accessibilita/",
+  "titolo": "Accessibilità",
+  "descrizione": "Come è stato costruito il sito di Multiservice perché sia usabile da tutti: obiettivo WCAG 2.2 livello AA, alternativa statica all'animazione, navigazione da tastiera.",
+  "h1": "Accessibilità",
+  "lead": "Vogliamo che questo sito sia usabile da tutti, con qualunque dispositivo e tecnologia assistiva.",
+  "hero_cta": false,
+  "ha_form": false,
+  "breadcrumb": [["Accessibilità", "/accessibilita/"]]
+}
+-->
+<!-- BOZZA DA VALIDARE: dichiarazione volontaria. Verificare con il consulente se all'impresa si applica
+     l'European Accessibility Act (D.Lgs. 82/2022): non vendendo online è probabile l'esenzione. -->
+<section class="sezione sezione--stretta">
+  <div class="contenitore contenitore--stretto legale">
+    <p class="quota">Ultimo aggiornamento: {{ data_aggiornamento }}</p>
+
+    <h2>Obiettivo</h2>
+    <p>Il sito è progettato per rispettare le Linee guida per l'accessibilità dei contenuti web (WCAG) 2.2 al livello AA.</p>
+
+    <h2>Cosa abbiamo fatto</h2>
+    <ul>
+      <li>Testi con contrasto sufficiente rispetto allo sfondo, dimensione di base di 17 px, righe di lunghezza contenuta.</li>
+      <li>Tutto si usa da tastiera, con il punto di attenzione sempre visibile e un collegamento «Vai al contenuto» all'inizio di ogni pagina.</li>
+      <li>L'animazione della home ha un collegamento «Salta l'animazione» e, se nel sistema hai chiesto di ridurre il movimento o di risparmiare dati, viene sostituita da immagini fisse, con pulsanti per scorrerle e per mettere in pausa.</li>
+      <li>Le foto hanno una descrizione testuale; il confronto prima/dopo si usa anche con le frecce della tastiera.</li>
+      <li>Il modulo di contatto ha etichette, messaggi di errore leggibili dagli screen reader e un'alternativa via WhatsApp, email o telefono.</li>
+    </ul>
+
+    <h2>Limiti noti</h2>
+    <p>Alcune foto dei cantieri hanno descrizioni brevi, generate dai dati del lavoro. Le scansioni dei certificati sono immagini: numero, ente e scadenza sono comunque riportati come testo accanto.</p>
+
+    <h2>Segnalazioni</h2>
+    <p>Se incontri un problema nell'uso del sito, scrivici a <a class="link" href="mailto:{{ email }}">{{ email }}</a> o chiamaci al <a class="link" href="tel:{{ telefono_href }}">{{ telefono }}</a>: ti rispondiamo e, se possibile, correggiamo.</p>
+  </div>
+</section>
