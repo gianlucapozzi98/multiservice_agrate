@@ -4,34 +4,28 @@
   "titolo": "Lavori realizzati · Cantieri di ristrutturazione e facciate",
   "descrizione": "I cantieri di Multiservice a Monza, Agrate Brianza, Milano, Merate e Burago di Molgora: ristrutturazioni di appartamenti e ville, facciate con cappotto termico. Foto prima, durante e dopo i lavori.",
   "nav": "lavori",
-  "eyebrow": "Lavori realizzati",
-  "h1": "I nostri cantieri, <em>prima e dopo</em>",
-  "lead": "Appartamenti, ville e condomini: alcune delle ristrutturazioni e delle riqualificazioni di facciate realizzate da Multiservice, raccontate con le foto dei cantieri.",
-  "hero_img": "lavori/agrate-brianza-via-matteotti/cantiere-02.jpg",
-  "hero_alt": "Cantiere Multiservice con ponteggio e cappotto termico ad Agrate Brianza",
-  "hero_badge": "Cantiere ad Agrate Brianza",
+  "h1": "I cantieri, raccontati con le foto.",
+  "lead": "Appartamenti, ville e condomini: per ogni lavoro luogo, anno, lavorazioni e le foto prima, durante e dopo, quando ci sono.",
+  "hero_cta": false,
   "breadcrumb": [["Lavori", "/lavori/"]]
 }
 -->
-<section class="section" aria-labelledby="cantieri-title">
-  <div class="container">
-    <div class="section-head"><span class="eyebrow">Cantieri</span><h2 id="cantieri-title">Scegli un lavoro e <em>guarda le foto</em></h2></div>
+<section class="sezione sezione--stretta" aria-label="Elenco dei lavori">
+  <div class="contenitore">
     {{> lavori_griglia }}
   </div>
 </section>
 
-<section class="section section--alt" aria-labelledby="gallerie-title">
-  <div class="container">
-    <div class="section-head section-head--row">
-      <div><span class="eyebrow">Gallerie per servizio</span><h2 id="gallerie-title">Finiture, pavimenti <em>e coperture</em></h2></div>
-      <p class="muted">Decine di foto di imbiancature decorative, posa di pavimenti e rivestimenti e rifacimento di tetti.</p>
+<section class="sezione sezione--intonaco" aria-labelledby="gallerie-title">
+  <div class="contenitore">
+    <div class="sezione__testa sezione__testa--doppia">
+      <h2 id="gallerie-title" data-righe>Finiture, pavimenti e coperture.</h2>
+      <p data-rivela>Le gallerie per servizio raccolgono le foto di imbiancature decorative, posa di pavimenti e rivestimenti e rifacimento di tetti.</p>
     </div>
     {{> gallerie_servizi }}
   </div>
 </section>
 
-<section class="section section--tight">
-  <div class="container">{{> cta_band }}</div>
-</section>
+{{> chiusura }}
 
 {{> sezione_contatto }}

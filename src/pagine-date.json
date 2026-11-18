@@ -1,90 +1,94 @@
 {
  "/": {
-  "data": "2026-11-10",
-  "hash": "3c8339069db1"
+  "data": "2026-11-18",
+  "hash": "359fd5732f22"
+ },
+ "/accessibilita/": {
+  "data": "2026-11-18",
+  "hash": "d676e1b56eb4"
  },
  "/certificazioni/": {
-  "data": "2026-11-10",
-  "hash": "8e46572ccacd"
+  "data": "2026-11-18",
+  "hash": "7a69ed69e3f5"
  },
  "/chi-siamo/": {
-  "data": "2026-11-10",
-  "hash": "72ffb3d28058"
+  "data": "2026-11-18",
+  "hash": "35c99e995905"
  },
  "/contatti/": {
-  "data": "2026-11-10",
-  "hash": "fabb10697d57"
+  "data": "2026-11-18",
+  "hash": "c31513bf35a9"
  },
  "/cookie-policy/": {
-  "data": "2026-11-10",
-  "hash": "db64baea3f0f"
+  "data": "2026-11-18",
+  "hash": "1dcbf9d00497"
  },
  "/facciate-e-cappotto-termico/": {
-  "data": "2026-11-10",
-  "hash": "67a8883dc752"
+  "data": "2026-11-18",
+  "hash": "adb5c20cba16"
  },
  "/imbiancature/": {
-  "data": "2026-11-10",
-  "hash": "a7e9a2136daf"
+  "data": "2026-11-18",
+  "hash": "f5519e523ff2"
  },
  "/impianti-elettrici-ed-idraulici/": {
-  "data": "2026-11-10",
-  "hash": "481d5610575a"
+  "data": "2026-11-18",
+  "hash": "d2e75d8f964f"
  },
  "/lavori/": {
-  "data": "2026-11-10",
-  "hash": "847f50594eea"
+  "data": "2026-11-18",
+  "hash": "74049ebc0650"
  },
  "/lavori/agrate-brianza-via-matteotti/": {
-  "data": "2026-11-10",
-  "hash": "d80478d938d5"
+  "data": "2026-11-18",
+  "hash": "362fbdfc579f"
  },
  "/lavori/burago-di-molgora/": {
-  "data": "2026-11-10",
-  "hash": "3ff0917edef9"
+  "data": "2026-11-18",
+  "hash": "d2fa6c165767"
  },
  "/lavori/merate/": {
-  "data": "2026-11-10",
-  "hash": "737c43f74a08"
+  "data": "2026-11-18",
+  "hash": "139f3e3fb8cd"
  },
  "/lavori/milano/": {
-  "data": "2026-11-10",
-  "hash": "828a241c3dfd"
+  "data": "2026-11-18",
+  "hash": "9898db5e0015"
  },
  "/lavori/monza-corso-milano/": {
-  "data": "2026-11-10",
-  "hash": "e525c5baf50f"
+  "data": "2026-11-18",
+  "hash": "c85ba299e390"
  },
  "/lavori/monza-via-viotti/": {
-  "data": "2026-11-10",
-  "hash": "fa3c89ac5bb5"
+  "data": "2026-11-18",
+  "hash": "a2506a2d6b97"
  },
- "/lavori/prova-1-agrate/": {
-  "data": "2026-11-10",
-  "hash": "748baf4afdf6"
+ "/note-legali/": {
+  "data": "2026-11-18",
+  "hash": "c7e51b220cbc"
  },
  "/privacy-policy/": {
-  "data": "2026-11-10",
-  "hash": "775cf1795304"
+  "data": "2026-11-18",
+  "hash": "eee835d4334d"
  },
  "/rifacimento-tetti/": {
-  "data": "2026-11-10",
-  "hash": "e9a66aa46296"
+  "data": "2026-11-18",
+  "hash": "430d33346a7c"
  },
  "/ristrutturazioni/": {
-  "data": "2026-11-10",
-  "hash": "5905c0fa970a"
+  "data": "2026-11-18",
+  "hash": "f741dc1f7a65"
  },
  "/rivestimenti/": {
-  "data": "2026-11-10",
-  "hash": "7f9f007b171b"
+  "data": "2026-11-18",
+  "hash": "972ebe3c801e"
  },
  "/serramenti/": {
-  "data": "2026-11-10",
-  "hash": "b91cd5dd3320"
+  "data": "2026-11-18",
+  "hash": "3dfc0217655b"
  },
  "/servizi/": {
-  "data": "2026-11-10",
-  "hash": "000b37dcb585"
+  "data": "2026-11-18",
+  "hash": "a52aa1ab7b8d"
  }
 }

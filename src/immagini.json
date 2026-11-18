@@ -1,5 +1,5 @@
 {
- "_icone": "icone-v1:d759c26ce68e:bd4eb12029d0",
+ "_icone": "icone-v2:d759c26ce68e:e9d405d59e6c",
  "azienda/furgone.webp": {
   "h": 1024,
   "hash": "84eaa944e82a",
@@ -141,16 +141,6 @@
    480,
    960,
    1416
-  ]
- },
- "lavori/img4792.jpg": {
-  "h": 2304,
-  "hash": "3eec1ab86364",
-  "w": 3456,
-  "widths": [
-   480,
-   960,
-   1600
   ]
  },
  "lavori/merate/01-edificio.jpg": {
